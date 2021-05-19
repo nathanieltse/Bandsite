@@ -1,0 +1,56 @@
+@use './partials/colors' as *;
+@use './partials/variables' as *;
+@use './partials/typographys' as *;
+@use './partials/spacings' as *;
+@use './partials/mixins' as *;
+
+* {
+    font-family: $primary-font;
+}
+h1 {
+    font-size: $mobile-header-font;
+    font-weight: $weight-bold;
+    line-height: $mobile-header-line-height;
+
+    @include tablet {
+        font-size: $normal-header-font;
+        line-height: $normal-header-line-height;
+    }
+}
+
+h2 {
+    font-size: $mobile-section-header-font;
+    line-height: $mobile-section-header-line-height;
+
+    @include tablet {
+        font-size: $normal-section-header-font;
+        line-height: $normal-section-header-line-height;
+    }
+}
+
+h3{
+    font-size: $mobile-sub-header-font;
+    line-height: $mobile-sub-header-line-height;
+
+    @include tablet {
+        font-size: $normal-sub-header-font;
+        line-height: $normal-sub-header-line-height;
+    }
+}
+
+p {
+    font-size: $mobile-body-font;
+    font-weight: $weight-regular;
+    line-height: $mobile-body-line-height;
+
+    @include tablet {
+        font-size: $normal-body-font;
+        line-height: $normal-body-line-height;
+    }
+}
+
+footer p {
+    @include tablet {
+        line-height: $normal-foot-line-height;
+    }
+}
