@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'avenir next';
+    src: url(../../assets/fonts/AvenirNextLTPro-Bold.otf) format("otf"),
+    url(../../assets/fonts/alternative-files/AvenirNextLTProBold.ttf) format("ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'avenir next';
+    src: url(../../assets/fonts/AvenirNextLTPro-Demi.otf) format("otf"),
+        url(../../assets/fonts/alternative-files/AvenirNextLTProDemi.ttf) format("ttf");
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'avenir next';
+    src: url(../../assets/fonts/AvenirNextLTPro-Regular.otf) format("otf"),
+        url(../../assets/fonts/alternative-files/AvenirNextLTPro.ttf) format("ttf");
+    font-weight: 400;
+}
+
+//font family
+
+$primary-font:'avenir next';
+
+//font weight
+
+$weight-regular:400;
+$weight-demi:600;
+$weight-bold:700;
+
+// desktop, tablet font size
+
+$header-font:4rem;
+$section-header-font:2.25rem;
+$sub-header-font:1.5rem;
+$body-font:0.875rem;
+$foot-font:0.875rem;
+$label-button-font:0.75rem;
+
+// mobile font size
+$mobile-header-font:1.5rem;
+$mobile-section-header-font:1.5rem;
+$mobile-sub-header-font:0.875rem;
+$mobile-body-font:0.8125rem;
+$mobile-foot-font:0.8125rem;
+$mobile-label-button-font:0.625rem;
+
+
