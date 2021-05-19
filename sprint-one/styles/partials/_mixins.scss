@@ -1,7 +1,7 @@
-@use './colors';
-@use './variables';
-@use './typographys';
-@use './spacings';
+@use './colors' as *;
+@use './variables' as *;
+@use './typographys' as *;
+@use './spacings' as *;
 
 @mixin reset-list {
     list-style: none;
@@ -17,4 +17,16 @@
 @mixin flex-row {
     display: flex;
     @content;
+}
+
+@mixin tablet {
+    @media (min-width:$tablet-size) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width:$desktop-size) {
+        @content;
+    }
 }
