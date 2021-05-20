@@ -123,7 +123,7 @@ p {
 }
 
 .about {
-  padding: 0 1rem;
+  margin: 0 1rem;
 }
 .about__title, .about__subtitle {
   margin: 1.5rem 0 1rem;
@@ -133,8 +133,44 @@ p {
   display: block;
 }
 .about__quote {
-  margin: 1rem 0 0;
+  padding: 1rem 0 0;
 }
 .about__text {
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.gallery {
+  background-color: #FAFAFA;
+  margin: 0 1rem;
+}
+.gallery__title {
+  margin: 1.5rem 0 1rem;
+  display: inline-block;
+}
+.gallery__image {
+  width: 100%;
+  display: block;
+  padding-bottom: 1rem;
+}
+
+.footer {
+  background-color: #323232;
+  padding: 0 1rem;
+}
+.footer * {
+  color: #FFFFFF;
+}
+.footer__title {
+  margin: 1.5rem 0 1rem;
+  display: inline-block;
+}
+.footer__fineprint {
+  padding-top: 3rem;
+}
+.footer__copyright {
+  padding: 1rem 0;
+}
+
+.contact-card__wrapper {
+  padding-top: 1rem;
 }/*# sourceMappingURL=main.css.map */

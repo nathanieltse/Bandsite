@@ -77,7 +77,6 @@ footer p {
         @include flex-row;
     }
 
-
     &__item {
         color: $primary-neutral-color;
         padding-bottom:$mobile-between-space;
@@ -115,7 +114,7 @@ footer p {
 }
 
 .about {
-    padding: $mobile-block-space;
+    margin: $mobile-block-space;
 
     &__title, &__subtitle {
         @include mobile-headline-space
@@ -127,12 +126,54 @@ footer p {
     }
 
     &__quote {
-        margin:$mobile-between-space 0 0;
+        padding:$mobile-between-space 0 0;
     }
 
     &__text {
-        margin-bottom: $mobile-between-space;
+        padding-bottom: $mobile-between-space;
     }
 
+}
+.gallery {
+    background-color: $secondary-white;
+    margin: $mobile-block-space;
+
+    &__title {
+        @include mobile-headline-space;
+        display:inline-block;
+    }
+    &__image {
+        width: 100%;
+        display: block;
+        padding-bottom: $mobile-between-space;
+    }
+}
+
+.footer {
+    background-color: $primary-color;
+    padding: $mobile-block-space;
+
+    & * {
+        color: $primary-white;
+    }
     
+    &__title {
+        @include mobile-headline-space;
+        display:inline-block;
+    }
+
+    &__fineprint {
+        padding-top: $normal-before-headlines-space;
+    }
+
+    &__copyright {
+        padding: $mobile-between-space 0;
+    }
+}
+.contact-card {
+
+    &__wrapper {
+        padding-top: $mobile-between-space;
+    }
+
 }
