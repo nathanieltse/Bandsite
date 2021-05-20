@@ -6,11 +6,14 @@
 
 * {
     font-family: $primary-font;
+    margin:0;
+    color:$primary-color;
 }
 h1 {
     font-size: $mobile-header-font;
     font-weight: $weight-bold;
     line-height: $mobile-header-line-height;
+    margin:0;
 
     @include tablet {
         font-size: $normal-header-font;
@@ -20,7 +23,9 @@ h1 {
 
 h2 {
     font-size: $mobile-section-header-font;
+    font-weight: $weight-bold;
     line-height: $mobile-section-header-line-height;
+    margin:0;
 
     @include tablet {
         font-size: $normal-section-header-font;
@@ -30,7 +35,9 @@ h2 {
 
 h3{
     font-size: $mobile-sub-header-font;
+    font-weight: $weight-demi;
     line-height: $mobile-sub-header-line-height;
+    margin-block:0;
 
     @include tablet {
         font-size: $normal-sub-header-font;
@@ -53,4 +60,79 @@ footer p {
     @include tablet {
         line-height: $normal-foot-line-height;
     }
+}
+.nav {
+    background-color:$primary-color;
+    text-align: center;
+
+    &__logo {
+        background-color:$primary-color;
+        height: 1.25rem;
+        width: 7.5rem;
+        margin: $mobile-between-space;
+    }
+
+    &__list {
+        @include reset-list;
+        @include flex-row;
+    }
+
+
+    &__item {
+        color: $primary-neutral-color;
+        padding-bottom:$mobile-between-space;
+        font-size: $mobile-sub-header-font;
+        font-weight: $weight-regular;
+        line-height: $mobile-sub-header-line-height;
+        width: 50%;
+
+        &--active, &:hover {
+            color: $primary-white;
+            border-bottom: $space-unit/2 solid $primary-white;
+        }
+
+        &--active {
+            font-weight: $weight-bold;
+        }
+    }
+}
+
+.hero {
+    position: relative;
+    
+
+    &__image {
+        width: 100%;
+        display:block;
+    }
+    
+    &__text {
+        color: $primary-white;
+        position: absolute;
+        margin: $mobile-block-space;
+        top:45%;
+    }
+}
+
+.about {
+    padding: $mobile-block-space;
+
+    &__title, &__subtitle {
+        @include mobile-headline-space
+    }
+
+    &__image {
+        width: 100%;
+        display:block;
+    }
+
+    &__quote {
+        margin:$mobile-between-space 0 0;
+    }
+
+    &__text {
+        margin-bottom: $mobile-between-space;
+    }
+
+    
 }

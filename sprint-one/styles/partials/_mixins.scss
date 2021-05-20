@@ -6,6 +6,7 @@
 @mixin reset-list {
     list-style: none;
     margin: 0;
+    padding: 0;
 }
 
 @mixin flex-column {
@@ -17,6 +18,14 @@
 @mixin flex-row {
     display: flex;
     @content;
+}
+
+@mixin mobile-headline-space{
+    margin: $mobile-before-headlines-space 0 $mobile-after-headlines-space;
+}
+
+@mixin normal-headline-space{
+    margin: $normal-before-headlines-space 0 $normal-after-headlines-space;
 }
 
 @mixin tablet {
