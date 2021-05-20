@@ -164,6 +164,9 @@ p {
   margin: 1.5rem 0 1rem;
   display: inline-block;
 }
+.footer__link {
+  margin-right: 2.25rem;
+}
 .footer__fineprint {
   padding-top: 3rem;
 }

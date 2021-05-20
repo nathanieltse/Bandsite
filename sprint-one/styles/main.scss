@@ -108,13 +108,13 @@ footer p {
     &__text {
         color: $primary-white;
         position: absolute;
-        margin: $mobile-block-space;
+        margin: $mobile-block-sidespace;
         top:45%;
     }
 }
 
 .about {
-    margin: $mobile-block-space;
+    margin: $mobile-block-sidespace;
 
     &__title, &__subtitle {
         @include mobile-headline-space
@@ -160,6 +160,10 @@ footer p {
     &__title {
         @include mobile-headline-space;
         display:inline-block;
+    }
+
+    &__link {
+        margin-right: $normal-between-space ;
     }
 
     &__fineprint {
