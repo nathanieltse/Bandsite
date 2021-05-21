@@ -169,6 +169,11 @@ p {
     margin: 3rem 0 2.25rem;
   }
 }
+@media (min-width: 768px) {
+  .about__body {
+    padding: 0 3.375rem;
+  }
+}
 .about__image {
   width: 100%;
   display: block;
@@ -176,17 +181,52 @@ p {
 .about__quote {
   padding: 1rem 0 0;
 }
+@media (min-width: 768px) {
+  .about__quote {
+    padding: 2.25rem 0 0;
+  }
+}
+.about__musician {
+  margin-top: 0.5rem;
+  font-size: 0.5833333333rem;
+}
+@media (min-width: 768px) {
+  .about__musician {
+    margin-top: 1.125rem;
+    font-size: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .about__textwrap {
+    display: flex;
+  }
+}
 .about__text {
   padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .about__text {
+    padding: 0 1.5rem 2.25rem 0;
+  }
 }
 
 .gallery {
   background-color: #FAFAFA;
-  margin: 0 1rem;
+  padding: 0 1rem;
+}
+@media (min-width: 768px) {
+  .gallery {
+    padding: 0 2.25rem;
+  }
 }
 .gallery__title {
   margin: 1.5rem 0 1rem;
   display: inline-block;
+}
+@media (min-width: 768px) {
+  .gallery__title {
+    margin: 3rem 0 2.25rem;
+  }
 }
 .gallery__image {
   width: 100%;

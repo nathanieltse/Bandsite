@@ -157,32 +157,73 @@ footer p {
         }
     }
 
+    &__body {
+
+        @include tablet {
+            padding:0 $normal-between-row-space*1.5;
+        }
+    }
+
     &__image {
         width: 100%;
         display:block;
+
     }
 
     &__quote {
         padding:$mobile-between-row-space 0 0;
+
+        @include tablet {
+            padding:$normal-between-row-space 0 0;
+        }
+    }
+
+    &__musician {
+        margin-top: $mobile-between-row-space/2;
+        font-size: $mobile-sub-header-font/1.5;
+
+        @include tablet {
+            margin-top:$normal-between-row-space/2;
+            font-size: $normal-sub-header-font/1.5;
+        }
+    }
+    &__textwrap {
+        @include tablet {
+            @include flex-row;
+        }
     }
 
     &__text {
         padding-bottom: $mobile-between-row-space;
+
+        @include tablet {
+            padding: 0 $normal-between-column-space $normal-between-row-space 0;
+        }
     }
 
 }
 .gallery {
     background-color: $secondary-white;
-    margin: $mobile-block-sidespace;
+    padding: $mobile-block-sidespace;
+
+    @include tablet {
+        padding: $tablet-block-sidespace;
+    }
 
     &__title {
         @include mobile-headline-space;
         display:inline-block;
+
+        @include tablet {
+            @include normal-headline-space;
+        }
     }
     &__image {
         width: 100%;
         display: block;
         padding-bottom: $mobile-between-row-space;
+
+
     }
 }
 
