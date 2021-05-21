@@ -366,7 +366,7 @@ footer p {
 
     &__btm-logo {
         @include logo-size;
-        
+
         @include tablet {
             display: none;
         }
@@ -398,5 +398,9 @@ footer p {
 
     &__name, &__company {
         font-weight: $weight-demi;
+    }
+
+    &__email {
+        text-decoration: none;
     }
 }
