@@ -208,6 +208,7 @@ footer p {
 
     @include tablet {
         padding: $tablet-block-sidespace;
+        padding-bottom: $normal-between-row-space;
     }
 
     &__title {
@@ -218,12 +219,36 @@ footer p {
             @include normal-headline-space;
         }
     }
+
+    &__imagewrap {
+        @include tablet {
+            @include flex-column {
+                gap:$normal-between-column-space;
+            }
+        }
+    }
+
+    &__image-row {
+        @include reset-list;
+    
+        @include tablet {
+            @include flex-row {
+                gap:$normal-between-column-space;
+            }
+        }
+        
+    }
+
+    &__item {
+        padding-bottom: $mobile-between-row-space;
+        @include tablet {
+            padding-bottom:0;
+        }
+    }
+
     &__image {
         width: 100%;
         display: block;
-        padding-bottom: $mobile-between-row-space;
-
-
     }
 }
 
@@ -231,31 +256,102 @@ footer p {
     background-color: $primary-color;
     padding: $mobile-block-sidespace;
 
+    @include tablet {
+        padding:$tablet-block-sidespace; 
+    }
+
     & * {
         color: $primary-white;
+    }
+
+    &__header {
+        @include flex-row{
+            align-items: baseline;
+        }
     }
     
     &__title {
         @include mobile-headline-space;
         display:inline-block;
+
+        @include tablet {
+            @include normal-headline-space;
+        }
+    }
+
+    &__social {
+        @include tablet {
+            margin: $normal-between-column-space;
+        }
+    }
+
+    &__top-logo {
+            display:none;
+
+        @include tablet {
+            max-height: 1.25rem;
+            max-width: 7.5rem;
+            display: block;
+            margin-left: auto;
+        }
     }
 
     &__link {
         margin-right: $normal-between-row-space ;
+
+        @include tablet {
+            margin-right: $normal-between-column-space;
+        }
+    }
+
+    &__contact {
+        @include tablet {
+            @include flex-row {
+                gap:$tablet-block-sidespace;
+            }
+        }
     }
 
     &__fineprint {
         padding-top: $normal-before-headlines-space;
     }
 
+    &__btm-logo {
+        max-height: 1.25rem;
+        max-width: 7.5rem;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
     &__copyright {
         padding: $mobile-between-row-space 0;
+
+        @include tablet {
+            padding: 0 0 $normal-between-row-space;
+        }
     }
 }
 .contact-card {
 
     &__wrapper {
         padding-top: $mobile-between-row-space;
+
+        @include tablet {
+            padding-top: $normal-between-row-space;
+        }
+        
+        &:first-child {
+            @include tablet {
+                padding-top: 0;
+            }
+        }
+        
+    }
+
+    &__name, &__company {
+        font-weight: $weight-demi;
     }
 
 }

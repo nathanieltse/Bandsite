@@ -217,6 +217,7 @@ p {
 @media (min-width: 768px) {
   .gallery {
     padding: 0 2.25rem;
+    padding-bottom: 2.25rem;
   }
 }
 .gallery__title {
@@ -228,33 +229,126 @@ p {
     margin: 3rem 0 2.25rem;
   }
 }
+@media (min-width: 768px) {
+  .gallery__imagewrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+.gallery__image-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .gallery__image-row {
+    display: flex;
+    gap: 1.5rem;
+  }
+}
+.gallery__item {
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .gallery__item {
+    padding-bottom: 0;
+  }
+}
 .gallery__image {
   width: 100%;
   display: block;
-  padding-bottom: 1rem;
 }
 
 .footer {
   background-color: #323232;
   padding: 0 1rem;
 }
+@media (min-width: 768px) {
+  .footer {
+    padding: 0 2.25rem;
+  }
+}
 .footer * {
   color: #FFFFFF;
+}
+.footer__header {
+  display: flex;
+  align-items: baseline;
 }
 .footer__title {
   margin: 1.5rem 0 1rem;
   display: inline-block;
 }
+@media (min-width: 768px) {
+  .footer__title {
+    margin: 3rem 0 2.25rem;
+  }
+}
+@media (min-width: 768px) {
+  .footer__social {
+    margin: 1.5rem;
+  }
+}
+.footer__top-logo {
+  display: none;
+}
+@media (min-width: 768px) {
+  .footer__top-logo {
+    max-height: 1.25rem;
+    max-width: 7.5rem;
+    display: block;
+    margin-left: auto;
+  }
+}
 .footer__link {
   margin-right: 2.25rem;
+}
+@media (min-width: 768px) {
+  .footer__link {
+    margin-right: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .footer__contact {
+    display: flex;
+    gap: 0 2.25rem;
+  }
 }
 .footer__fineprint {
   padding-top: 3rem;
 }
+.footer__btm-logo {
+  max-height: 1.25rem;
+  max-width: 7.5rem;
+}
+@media (min-width: 768px) {
+  .footer__btm-logo {
+    display: none;
+  }
+}
 .footer__copyright {
   padding: 1rem 0;
+}
+@media (min-width: 768px) {
+  .footer__copyright {
+    padding: 0 0 2.25rem;
+  }
 }
 
 .contact-card__wrapper {
   padding-top: 1rem;
+}
+@media (min-width: 768px) {
+  .contact-card__wrapper {
+    padding-top: 2.25rem;
+  }
+}
+@media (min-width: 768px) {
+  .contact-card__wrapper:first-child {
+    padding-top: 0;
+  }
+}
+.contact-card__name, .contact-card__company {
+  font-weight: 600;
 }/*# sourceMappingURL=main.css.map */
