@@ -76,8 +76,11 @@ p {
   }
 }
 
-.nav {
+.header {
   background-color: #323232;
+}
+
+.nav {
   text-align: center;
   padding-top: 1.5rem;
 }
@@ -85,6 +88,11 @@ p {
   .nav {
     display: flex;
     padding: 0 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .nav {
+    padding: 0 6rem;
   }
 }
 .nav__link {
@@ -137,6 +145,15 @@ p {
 .hero {
   position: relative;
 }
+.hero:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: #323232;
+  opacity: 50%;
+}
 .hero__image {
   width: 100%;
   display: block;
@@ -146,10 +163,16 @@ p {
   position: absolute;
   margin: 0 1rem;
   top: 45%;
+  z-index: 1;
 }
 @media (min-width: 768px) {
   .hero__text {
     margin: 0 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero__text {
+    margin: 0 6rem;
   }
 }
 
@@ -159,6 +182,11 @@ p {
 @media (min-width: 768px) {
   .about {
     margin: 0 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .about {
+    margin: 0 6rem;
   }
 }
 .about__title, .about__subtitle {
@@ -172,6 +200,11 @@ p {
 @media (min-width: 768px) {
   .about__body {
     padding: 0 3.375rem;
+  }
+}
+@media (min-width: 1280px) {
+  .about__body {
+    padding: 0 5.625rem;
   }
 }
 .about__image {
@@ -217,6 +250,12 @@ p {
 @media (min-width: 768px) {
   .gallery {
     padding: 0 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .gallery {
+    padding: 0 6rem;
     padding-bottom: 2.25rem;
   }
 }
@@ -269,6 +308,11 @@ p {
     padding: 0 2.25rem;
   }
 }
+@media (min-width: 1280px) {
+  .footer {
+    padding: 0 6rem;
+  }
+}
 .footer * {
   color: #FFFFFF;
 }
@@ -290,6 +334,11 @@ p {
 @media (min-width: 768px) {
   .footer__social {
     margin: 1.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__social {
+    margin: 3rem;
   }
 }
 .footer__top-logo {
@@ -314,7 +363,12 @@ p {
 @media (min-width: 768px) {
   .footer__contact {
     display: flex;
-    gap: 0 2.25rem;
+    gap: 3rem;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__contact {
+    gap: 4.5rem;
   }
 }
 .footer__fineprint {
