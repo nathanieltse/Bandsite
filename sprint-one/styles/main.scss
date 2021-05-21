@@ -64,26 +64,50 @@ footer p {
 .nav {
     background-color:$primary-color;
     text-align: center;
+    padding-top:$mobile-before-headlines-space;
 
-    &__logo {
+    @include tablet {
+        @include flex-row ;
+        padding:$tablet-block-sidespace;
+    }
+
+    &__link {
         background-color:$primary-color;
-        height: 1.25rem;
-        width: 7.5rem;
-        margin: $mobile-between-space;
+        max-height: 1.25rem;
+        max-width: 7.5rem;
+        
+        @include tablet{
+            margin: $normal-between-column-space;
+            margin-left: 0;
+        }
+        
     }
 
     &__list {
         @include reset-list;
         @include flex-row;
+        margin-top:$mobile-between-row-space;
+
+        @include tablet{
+            margin: 0;
+        }
     }
 
     &__item {
         color: $primary-neutral-color;
-        padding-bottom:$mobile-between-space;
+        padding-bottom:$mobile-between-row-space;
         font-size: $mobile-sub-header-font;
         font-weight: $weight-regular;
         line-height: $mobile-sub-header-line-height;
         width: 50%;
+
+        @include tablet{
+            @include flex-row {
+                align-items: center;
+            }
+            margin:0 $normal-between-column-space;
+            padding: 0;
+        }
 
         &--active, &:hover {
             color: $primary-white;
@@ -110,14 +134,27 @@ footer p {
         position: absolute;
         margin: $mobile-block-sidespace;
         top:45%;
+
+        @include tablet{
+            margin: $tablet-block-sidespace;
+        }
+        
     }
 }
 
 .about {
     margin: $mobile-block-sidespace;
 
+    @include tablet {
+        margin: $tablet-block-sidespace
+    }
+
     &__title, &__subtitle {
-        @include mobile-headline-space
+        @include mobile-headline-space;
+
+        @include tablet {
+            @include normal-headline-space;
+        }
     }
 
     &__image {
@@ -126,17 +163,17 @@ footer p {
     }
 
     &__quote {
-        padding:$mobile-between-space 0 0;
+        padding:$mobile-between-row-space 0 0;
     }
 
     &__text {
-        padding-bottom: $mobile-between-space;
+        padding-bottom: $mobile-between-row-space;
     }
 
 }
 .gallery {
     background-color: $secondary-white;
-    margin: $mobile-block-space;
+    margin: $mobile-block-sidespace;
 
     &__title {
         @include mobile-headline-space;
@@ -145,13 +182,13 @@ footer p {
     &__image {
         width: 100%;
         display: block;
-        padding-bottom: $mobile-between-space;
+        padding-bottom: $mobile-between-row-space;
     }
 }
 
 .footer {
     background-color: $primary-color;
-    padding: $mobile-block-space;
+    padding: $mobile-block-sidespace;
 
     & * {
         color: $primary-white;
@@ -163,7 +200,7 @@ footer p {
     }
 
     &__link {
-        margin-right: $normal-between-space ;
+        margin-right: $normal-between-row-space ;
     }
 
     &__fineprint {
@@ -171,13 +208,13 @@ footer p {
     }
 
     &__copyright {
-        padding: $mobile-between-space 0;
+        padding: $mobile-between-row-space 0;
     }
 }
 .contact-card {
 
     &__wrapper {
-        padding-top: $mobile-between-space;
+        padding-top: $mobile-between-row-space;
     }
 
 }
