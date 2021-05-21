@@ -265,8 +265,10 @@ footer p {
     }
 
     &__header {
-        @include flex-row{
-            align-items: baseline;
+        @include tablet {
+            @include flex-row{
+                align-items: baseline;
+            }
         }
     }
     
@@ -280,6 +282,7 @@ footer p {
     }
 
     &__social {
+
         @include tablet {
             margin: $normal-between-column-space;
         }
