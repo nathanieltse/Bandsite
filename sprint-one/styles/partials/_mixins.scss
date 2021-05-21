@@ -9,6 +9,11 @@
     padding: 0;
 }
 
+@mixin logo-size {
+    max-height: $logo-height;
+    max-width: $logo-width;
+}
+
 @mixin flex-column {
     display: flex;
     flex-direction: column;

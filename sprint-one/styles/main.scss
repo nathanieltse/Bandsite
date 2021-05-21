@@ -82,9 +82,8 @@ footer p {
 
     &__link {
         background-color:$primary-color;
-        max-height: $logo-height;
-        max-width: $logo-width;
-        
+        @include logo-size;
+    
         @include tablet{
             margin: $normal-between-column-space;
             margin-left: 0;
@@ -161,7 +160,6 @@ footer p {
         @include desktop {
             margin: $normal-block-sidespace;
         }
-        
     }
 }
 
@@ -218,6 +216,7 @@ footer p {
             font-size: $normal-sub-header-font/1.5;
         }
     }
+
     &__textwrap {
         @include tablet {
             @include flex-row;
@@ -231,7 +230,6 @@ footer p {
             padding: 0 $normal-between-column-space $normal-between-row-space 0;
         }
     }
-
 }
 .gallery {
     background-color: $secondary-white;
@@ -272,7 +270,6 @@ footer p {
                 gap:$normal-between-column-space;
             }
         }
-        
     }
 
     &__item {
@@ -349,7 +346,6 @@ footer p {
         @include tablet {
             margin-right: $normal-between-column-space;
         }
-        
     }
 
     &__contact {
@@ -369,9 +365,8 @@ footer p {
     }
 
     &__btm-logo {
-        max-height: $logo-height;
-        max-width: $logo-width;
-
+        @include logo-size;
+        
         @include tablet {
             display: none;
         }
@@ -390,20 +385,18 @@ footer p {
     &__wrapper {
         padding-top: $mobile-between-row-space;
 
-        @include tablet {
-            padding-top: $normal-between-row-space;
-        }
-        
         &:first-child {
             @include tablet {
                 padding-top: 0;
             }
         }
-        
+
+        @include tablet {
+            padding-top: $normal-between-row-space;
+        }
     }
 
     &__name, &__company {
         font-weight: $weight-demi;
     }
-
 }
