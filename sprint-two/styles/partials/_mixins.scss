@@ -1,0 +1,46 @@
+@use './colors' as *;
+@use './variables' as *;
+@use './typographys' as *;
+@use './spacings' as *;
+
+@mixin reset-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin logo-size {
+    max-height: $logo-height;
+    max-width: $logo-width;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+    @content;
+}
+
+@mixin flex-row {
+    display: flex;
+    @content;
+}
+
+@mixin mobile-headline-space{
+    margin: $mobile-before-headlines-space 0 $mobile-after-headlines-space;
+}
+
+@mixin normal-headline-space{
+    margin: $normal-before-headlines-space 0 $normal-after-headlines-space;
+}
+
+@mixin tablet {
+    @media (min-width:$tablet-size) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width:$desktop-size) {
+        @content;
+    }
+}
