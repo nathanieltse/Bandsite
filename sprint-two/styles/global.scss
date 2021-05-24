@@ -9,6 +9,7 @@
     margin:0;
     color:$primary-color;
 }
+
 h1 {
     font-size: $mobile-header-font;
     font-weight: $weight-bold;
@@ -62,6 +63,7 @@ footer p {
     }
 }
 
+
 .header {
     background-color:$primary-color;
 }
@@ -80,7 +82,7 @@ footer p {
         padding: $normal-block-sidespace;
     }
 
-    &__link {
+    &__logo {
         background-color:$primary-color;
         @include logo-size;
     
@@ -102,27 +104,37 @@ footer p {
     }
 
     &__item {
-        color: $primary-neutral-color;
         padding-bottom:$mobile-between-row-space;
-        font-size: $mobile-sub-header-font;
-        font-weight: $weight-regular;
-        line-height: $mobile-sub-header-line-height;
         width: 50%;
 
         @include tablet{
             @include flex-row {
                 align-items: center;
+                justify-content: center;
             }
             margin:0 $normal-between-column-space;
             padding: 0;
         }
 
-        &--active, &:hover {
-            color: $primary-white;
+        @include desktop {
+            width: $space-unit*8;
+        }
+
+        &:hover, &--active {
             border-bottom: $space-unit/2 solid $primary-white;
         }
 
-        &--active {
+        
+    }
+    &__link {
+        font-size: $mobile-sub-header-font;
+        font-weight: $weight-regular;
+        line-height: $mobile-sub-header-line-height;
+        text-decoration: none;
+        color: $primary-neutral-color;
+
+        &--active, &--active {
+            color: $primary-white;
             font-weight: $weight-bold;
         }
     }
@@ -144,144 +156,6 @@ footer p {
     &__image {
         width: 100%;
         display:block;
-    }
-    
-    &__text {
-        color: $primary-white;
-        position: absolute;
-        margin: $mobile-block-sidespace;
-        top:45%;
-        z-index: 1;
-
-        @include tablet{
-            margin: $tablet-block-sidespace;
-        }
-
-        @include desktop {
-            margin: $normal-block-sidespace;
-        }
-    }
-}
-
-.about {
-    margin: $mobile-block-sidespace;
-
-    @include tablet {
-        margin: $tablet-block-sidespace
-    }
-
-    @include desktop {
-        margin: $normal-block-sidespace;
-    }
-
-    &__title, &__subtitle {
-        @include mobile-headline-space;
-
-        @include tablet {
-            @include normal-headline-space;
-        }
-    }
-
-    &__body {
-
-        @include tablet {
-            padding:0 $normal-between-row-space*1.5;
-        }
-
-        @include desktop {
-            padding:0 $normal-between-row-space*2.5;
-        }
-    }
-
-    &__image {
-        width: 100%;
-        display:block;
-
-    }
-
-    &__quote {
-        padding:$mobile-between-row-space 0 0;
-
-        @include tablet {
-            padding:$normal-between-row-space 0 0;
-        }
-    }
-
-    &__musician {
-        margin-top: $mobile-between-row-space/2;
-        font-size: $mobile-sub-header-font/1.5;
-
-        @include tablet {
-            margin-top:$normal-between-row-space/2;
-            font-size: $normal-sub-header-font/1.5;
-        }
-    }
-
-    &__textwrap {
-        @include tablet {
-            @include flex-row;
-        }
-    }
-
-    &__text {
-        padding-bottom: $mobile-between-row-space;
-
-        @include tablet {
-            padding: 0 $normal-between-column-space $normal-between-row-space 0;
-        }
-    }
-}
-.gallery {
-    background-color: $secondary-white;
-    padding: $mobile-block-sidespace;
-
-    @include tablet {
-        padding: $tablet-block-sidespace;
-        padding-bottom: $normal-between-row-space;
-    }
-
-    @include desktop {
-        padding: $normal-block-sidespace;
-        padding-bottom: $normal-between-row-space;
-    }
-
-    &__title {
-        @include mobile-headline-space;
-        display:inline-block;
-
-        @include tablet {
-            @include normal-headline-space;
-        }
-    }
-
-    &__imagewrap {
-        @include tablet {
-            @include flex-column {
-                gap:$normal-between-column-space;
-            }
-        }
-    }
-
-    &__image-row {
-        @include reset-list;
-    
-        @include tablet {
-            @include flex-row {
-                gap:$normal-between-column-space;
-            }
-        }
-    }
-
-    &__item {
-        padding-bottom: $mobile-between-row-space;
-        @include tablet {
-            padding-bottom:0;
-        }
-    }
-
-    &__image {
-        width: 100%;
-        display: block;
     }
 }
 
