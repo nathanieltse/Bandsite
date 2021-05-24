@@ -1,0 +1,406 @@
+@use './partials/colors' as *;
+@use './partials/variables' as *;
+@use './partials/typographys' as *;
+@use './partials/spacings' as *;
+@use './partials/mixins' as *;
+
+* {
+    font-family: $primary-font;
+    margin:0;
+    color:$primary-color;
+}
+h1 {
+    font-size: $mobile-header-font;
+    font-weight: $weight-bold;
+    line-height: $mobile-header-line-height;
+    margin:0;
+
+    @include tablet {
+        font-size: $normal-header-font;
+        line-height: $normal-header-line-height;
+    }
+}
+
+h2 {
+    font-size: $mobile-section-header-font;
+    font-weight: $weight-bold;
+    line-height: $mobile-section-header-line-height;
+    margin:0;
+
+    @include tablet {
+        font-size: $normal-section-header-font;
+        line-height: $normal-section-header-line-height;
+    }
+}
+
+h3{
+    font-size: $mobile-sub-header-font;
+    font-weight: $weight-demi;
+    line-height: $mobile-sub-header-line-height;
+    margin-block:0;
+
+    @include tablet {
+        font-size: $normal-sub-header-font;
+        line-height: $normal-sub-header-line-height;
+    }
+}
+
+p {
+    font-size: $mobile-body-font;
+    font-weight: $weight-regular;
+    line-height: $mobile-body-line-height;
+
+    @include tablet {
+        font-size: $normal-body-font;
+        line-height: $normal-body-line-height;
+    }
+}
+
+footer p {
+    @include tablet {
+        line-height: $normal-foot-line-height;
+    }
+}
+
+.header {
+    background-color:$primary-color;
+}
+
+.nav {
+    text-align: center;
+    padding-top:$mobile-before-headlines-space;
+
+
+    @include tablet {
+        @include flex-row ;
+        padding:$tablet-block-sidespace;
+    }
+
+    @include desktop {
+        padding: $normal-block-sidespace;
+    }
+
+    &__link {
+        background-color:$primary-color;
+        @include logo-size;
+    
+        @include tablet{
+            margin: $normal-between-column-space;
+            margin-left: 0;
+        }
+        
+    }
+
+    &__list {
+        @include reset-list;
+        @include flex-row;
+        margin-top:$mobile-between-row-space;
+
+        @include tablet{
+            margin: 0;
+        }
+    }
+
+    &__item {
+        color: $primary-neutral-color;
+        padding-bottom:$mobile-between-row-space;
+        font-size: $mobile-sub-header-font;
+        font-weight: $weight-regular;
+        line-height: $mobile-sub-header-line-height;
+        width: 50%;
+
+        @include tablet{
+            @include flex-row {
+                align-items: center;
+            }
+            margin:0 $normal-between-column-space;
+            padding: 0;
+        }
+
+        &--active, &:hover {
+            color: $primary-white;
+            border-bottom: $space-unit/2 solid $primary-white;
+        }
+
+        &--active {
+            font-weight: $weight-bold;
+        }
+    }
+}
+
+.hero {
+    position: relative;
+    
+    &:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        background-color: $primary-color;
+        opacity: 50%;
+    }
+
+    &__image {
+        width: 100%;
+        display:block;
+    }
+    
+    &__text {
+        color: $primary-white;
+        position: absolute;
+        margin: $mobile-block-sidespace;
+        top:45%;
+        z-index: 1;
+
+        @include tablet{
+            margin: $tablet-block-sidespace;
+        }
+
+        @include desktop {
+            margin: $normal-block-sidespace;
+        }
+    }
+}
+
+.about {
+    margin: $mobile-block-sidespace;
+
+    @include tablet {
+        margin: $tablet-block-sidespace
+    }
+
+    @include desktop {
+        margin: $normal-block-sidespace;
+    }
+
+    &__title, &__subtitle {
+        @include mobile-headline-space;
+
+        @include tablet {
+            @include normal-headline-space;
+        }
+    }
+
+    &__body {
+
+        @include tablet {
+            padding:0 $normal-between-row-space*1.5;
+        }
+
+        @include desktop {
+            padding:0 $normal-between-row-space*2.5;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        display:block;
+
+    }
+
+    &__quote {
+        padding:$mobile-between-row-space 0 0;
+
+        @include tablet {
+            padding:$normal-between-row-space 0 0;
+        }
+    }
+
+    &__musician {
+        margin-top: $mobile-between-row-space/2;
+        font-size: $mobile-sub-header-font/1.5;
+
+        @include tablet {
+            margin-top:$normal-between-row-space/2;
+            font-size: $normal-sub-header-font/1.5;
+        }
+    }
+
+    &__textwrap {
+        @include tablet {
+            @include flex-row;
+        }
+    }
+
+    &__text {
+        padding-bottom: $mobile-between-row-space;
+
+        @include tablet {
+            padding: 0 $normal-between-column-space $normal-between-row-space 0;
+        }
+    }
+}
+.gallery {
+    background-color: $secondary-white;
+    padding: $mobile-block-sidespace;
+
+    @include tablet {
+        padding: $tablet-block-sidespace;
+        padding-bottom: $normal-between-row-space;
+    }
+
+    @include desktop {
+        padding: $normal-block-sidespace;
+        padding-bottom: $normal-between-row-space;
+    }
+
+    &__title {
+        @include mobile-headline-space;
+        display:inline-block;
+
+        @include tablet {
+            @include normal-headline-space;
+        }
+    }
+
+    &__imagewrap {
+        @include tablet {
+            @include flex-column {
+                gap:$normal-between-column-space;
+            }
+        }
+    }
+
+    &__image-row {
+        @include reset-list;
+    
+        @include tablet {
+            @include flex-row {
+                gap:$normal-between-column-space;
+            }
+        }
+    }
+
+    &__item {
+        padding-bottom: $mobile-between-row-space;
+        @include tablet {
+            padding-bottom:0;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        display: block;
+    }
+}
+
+.footer {
+    background-color: $primary-color;
+    padding: $mobile-block-sidespace;
+
+    @include tablet {
+        padding:$tablet-block-sidespace; 
+    }
+
+    @include desktop {
+        padding: $normal-block-sidespace;
+    }
+
+    & * {
+        color: $primary-white;
+    }
+
+    &__header {
+        @include tablet {
+            @include flex-row{
+                align-items: baseline;
+            }
+        }
+    }
+    
+    &__title {
+        @include mobile-headline-space;
+        display:inline-block;
+
+        @include tablet {
+            @include normal-headline-space;
+        }
+    }
+
+    &__social {
+
+        @include tablet {
+            margin: $normal-between-column-space;
+        }
+
+        @include desktop {
+            margin: $normal-between-column-space*2;
+        }
+    }
+
+    &__top-logo {
+            display:none;
+
+        @include tablet {
+            max-height: $logo-height;
+            max-width: $logo-width;
+            display: block;
+            margin-left: auto;
+        }
+    }
+
+    &__link {
+        margin-right: $normal-between-row-space ;
+
+        @include tablet {
+            margin-right: $normal-between-column-space;
+        }
+    }
+
+    &__contact {
+        @include tablet {
+            @include flex-row {
+                gap:$normal-between-column-space*2;
+            }
+        }
+
+        @include desktop {
+            gap:$normal-between-column-space*3;
+        }
+    }
+
+    &__fineprint {
+        padding-top: $normal-before-headlines-space;
+    }
+
+    &__btm-logo {
+        @include logo-size;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__copyright {
+        padding: $mobile-between-row-space 0;
+
+        @include tablet {
+            padding: 0 0 $normal-between-row-space;
+        }
+    }
+}
+.contact-card {
+
+    &__wrapper {
+        padding-top: $mobile-between-row-space;
+
+        &:first-child {
+            @include tablet {
+                padding-top: 0;
+            }
+        }
+
+        @include tablet {
+            padding-top: $normal-between-row-space;
+        }
+    }
+
+    &__name, &__company {
+        font-weight: $weight-demi;
+    }
+
+    &__email {
+        text-decoration: none;
+    }
+}
