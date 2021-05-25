@@ -44,3 +44,42 @@
         @content;
     }
 }
+
+@mixin divider {
+    border-bottom: 0.0625rem solid $secondary-neutral-color;
+}
+
+@mixin button {
+    font-size: $mobile-label-button-font;
+    font-weight: $weight-bold;
+    line-height: $mobile-label-button-line-height;
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    border-style: none;
+    background-color: $primary-color;
+    color: $primary-white;
+
+    &:hover {
+        background-color: $secondary-color
+    }
+    @include tablet {
+        font-size: $normal-label-button-font;
+        line-height: $normal-label-button-line-height;
+        width: 20%;
+        min-width: 9.375rem;
+        padding:0 2rem;
+    }
+} 
+
+@mixin label {
+    font-size: $mobile-label-button-font;
+    line-height: $mobile-label-button-line-height;
+    font-weight: $weight-bold;
+    color: $primary-neutral-color;
+
+    @include tablet {
+        font-size: $normal-label-button-font;
+        line-height: $normal-label-button-line-height;
+    }
+}

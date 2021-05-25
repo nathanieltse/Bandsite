@@ -4,6 +4,7 @@
 @use './partials/spacings' as *;
 @use './partials/mixins' as *;
 
+//global font size, weight, line height, margin
 * {
     font-family: $primary-font;
     margin:0;
@@ -63,7 +64,7 @@ footer p {
     }
 }
 
-
+//global nav bar, footer, button elements
 .header {
     background-color:$primary-color;
 }
@@ -278,4 +279,9 @@ footer p {
     &__email {
         text-decoration: none;
     }
+}
+
+.button {
+    @include button;
+    @include mobile-headline-space;
 }

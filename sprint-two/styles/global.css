@@ -280,4 +280,29 @@ p {
 }
 .contact-card__email {
   text-decoration: none;
+}
+
+.button {
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  border-style: none;
+  background-color: #323232;
+  color: #FFFFFF;
+  margin: 1.5rem 0 1rem;
+}
+.button:hover {
+  background-color: #000000;
+}
+@media (min-width: 768px) {
+  .button {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    width: 20%;
+    min-width: 9.375rem;
+    padding: 0 2rem;
+  }
 }/*# sourceMappingURL=global.css.map */

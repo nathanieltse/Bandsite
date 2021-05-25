@@ -49,7 +49,7 @@
     
 }
 
-.main{
+.main {
     margin: $mobile-block-sidespace;
 
     @include tablet {
@@ -66,5 +66,53 @@
         @include tablet {
             @include normal-headline-space;
         }
+    }
+
+    &__tablet-subtitle-box{
+        display: none;
+
+        @include tablet {
+            
+            @include flex-row{
+                justify-content: space-between;
+            }
+        }
+    }
+
+    &__tablet-subtitle {
+        @include label;
+        width: 20%;
+    }
+
+
+}
+
+.card {
+    @include divider;
+    margin-bottom: $mobile-between-row-space;
+
+    @include tablet {
+        @include flex-row{
+            justify-content: space-between;
+        }
+        
+    }
+
+    &__subtitle {
+        @include label;
+        margin-top: $mobile-before-headlines-space;
+
+        @include tablet {
+            display: none;
+        }
+
+    } 
+
+    &__date {
+        font-weight: $weight-demi;
+    }
+
+    &__date, &__text {
+        width: 20%;
     }
 }
