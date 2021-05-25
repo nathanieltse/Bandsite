@@ -10,7 +10,8 @@
         color: $primary-white;
         position: absolute;
         margin: $mobile-block-sidespace;
-        top:45%;
+        top:50%;
+        transform: translateY(-50%);
         z-index: 1;
 
         @include tablet{

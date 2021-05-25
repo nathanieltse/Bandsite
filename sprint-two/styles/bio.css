@@ -17,7 +17,8 @@
   color: #FFFFFF;
   position: absolute;
   margin: 0 1rem;
-  top: 45%;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 1;
 }
 @media (min-width: 768px) {

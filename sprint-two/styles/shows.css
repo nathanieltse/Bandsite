@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "avenir next";
+  src: url(../../assets/fonts/AvenirNextLTPro-Bold.otf) format("otf"), url(../../assets/fonts/alternative-files/AvenirNextLTProBold.ttf) format("ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "avenir next";
+  src: url(../../assets/fonts/AvenirNextLTPro-Demi.otf) format("otf"), url(../../assets/fonts/alternative-files/AvenirNextLTProDemi.ttf) format("ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "avenir next";
+  src: url(../../assets/fonts/AvenirNextLTPro-Regular.otf) format("otf"), url(../../assets/fonts/alternative-files/AvenirNextLTPro.ttf) format("ttf");
+  font-weight: 400;
+}
+.hero__container {
+  margin: 0 1rem;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (min-width: 768px) {
+  .hero__container {
+    width: 60%;
+    margin: 0 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero__container {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    left: 0%;
+    right: 0%;
+    margin: 0 6rem;
+  }
+}
+.hero__title {
+  color: #FFFFFF;
+}
+.hero__text {
+  margin: 1.5rem 0 1rem;
+  color: #FFFFFF;
+}
+@media (min-width: 1280px) {
+  .hero__player {
+    width: 30%;
+  }
+}
+
+.main {
+  margin: 0 1rem;
+}
+@media (min-width: 768px) {
+  .main {
+    margin: 0 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .main {
+    margin: 0 6rem;
+  }
+}
+.main__title {
+  margin: 1.5rem 0 1rem;
+}
+@media (min-width: 768px) {
+  .main__title {
+    margin: 3rem 0 2.25rem;
+  }
+}/*# sourceMappingURL=shows.css.map */
