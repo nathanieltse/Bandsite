@@ -175,12 +175,20 @@ footer p {
 
     &__wrapper{
         @include wrapper-sidespace;
+
+        @include tablet {
+            @include flex-row {
+                flex-wrap: wrap;
+            }
+        }
     }
     
     &__header {
         @include tablet {
             @include flex-row{
                 align-items: baseline;
+                order:-1;
+                width: 80%;
             }
         }
     }
@@ -205,17 +213,6 @@ footer p {
         }
     }
 
-    &__top-logo {
-            display:none;
-
-        @include tablet {
-            max-height: $logo-height;
-            max-width: $logo-width;
-            display: block;
-            margin-left: auto;
-        }
-    }
-
     &__link {
         margin-right: $normal-between-row-space ;
 
@@ -228,31 +225,41 @@ footer p {
         @include tablet {
             @include flex-row {
                 gap:$normal-between-column-space*2;
+                width: 100%;
             }
         }
 
         @include desktop {
             gap:$normal-between-column-space*3;
+            
         }
     }
 
-    &__fineprint {
-        padding-top: $normal-before-headlines-space;
-    }
+    
 
-    &__btm-logo {
+    &__logo {
         @include logo-size;
+        padding-top: $normal-before-headlines-space;
+
 
         @include tablet {
-            display: none;
+            margin: 0 0 $space-unit*6 auto;
+            padding:0;
+            order :-1;
+            align-self: flex-end;
         }
+
+        @include desktop {
+            margin-bottom: $space-unit*7;
+        }
+        
     }
 
     &__copyright {
         padding: $mobile-between-row-space 0;
 
         @include tablet {
-            padding: 0 0 $normal-between-row-space;
+            padding:$normal-between-row-space 0;
         }
     }
 }
