@@ -2,75 +2,82 @@
 let dateList = ["Mon Sept 06 2021", "Tue Sept 21 2021", "Fri Oct 15 2021", "Sat Nov 06 2021", "Fri Nov 26 2021", "Wed Dec 15 2021"]
 let venueList = ["Ronald Lane", "Pier 3 East", "View Lounge", "Hyatt Agency", "Moscow Center", "Press Club"]
 
-//adding title
+
+//function for adding element
+const addElement = (element, className) => {
+    return (content) => {
+        const el = document.createElement(element)
+        el.className = className
+        el.innerHTML = content
+        return el
+    }
+}
+
+const appendElement = (parentElment, child) => {
+    child.forEach(element => {
+        parentElment.append(element)
+    })
+}
+
+//selecting body 
 const main = document.querySelector('.main')
-const title = document.createElement('h2')
-title.innerText = "Shows"
-title.className="main__title"
-main.append(title)
+
+//adding title
+let title = addElement("h2", "main__title")
+title = title("Shows")
+appendElement(main, [title])
+
 
 //subtitle for tablet and desktop
-const mainBody = document.createElement('section')
-const titleContainer = document.createElement('section')
-const dateTitle = document.createElement('p')
-const venueTitle = document.createElement('p')
-const locationTitle = document.createElement('p')
-const lastBox = document.createElement('p')
+let mainBody = addElement("section", "main__body")
+let titleContainer = addElement("section", "main__tablet-subtitle-box")
+let dateTitle = addElement("p", "main__tablet-subtitle")
+let venueTitle = addElement("p", "main__tablet-subtitle")
+let locationTitle = addElement("p", "main__tablet-subtitle")
+let lastBox = addElement("p", "main__tablet-subtitle")
 
 //set default text
-dateTitle.innerText = "DATES"
-venueTitle.innerText = "VENUE"
-locationTitle.innerText = "LOCATION"
-lastBox.innerText = ""
-
-//set class names
-mainBody.className = "main__body"
-titleContainer.className = "main__tablet-subtitle-box"
-dateTitle.className = "main__tablet-subtitle"
-venueTitle.className = "main__tablet-subtitle"
-locationTitle.className = "main__tablet-subtitle"
-lastBox.className = "main__tablet-subtitle"
+mainBody = mainBody("")
+titleContainer = titleContainer("")
+dateTitle = dateTitle("DATES")
+venueTitle =venueTitle("VENUE")
+locationTitle = locationTitle("LOCATION")
+lastBox = lastBox("")
 
 
 //add all elements to container
-titleContainer.append(dateTitle, venueTitle, locationTitle,lastBox)
-mainBody.append(titleContainer)
-main.append(mainBody)
+appendElement(titleContainer, [dateTitle, venueTitle, locationTitle,lastBox])
+appendElement(mainBody, [titleContainer])
+appendElement(main, [mainBody])
 
-
-for(let i= 0; i < dateList.length; i++){
+dateList.forEach((element, index) => {
 
     //variable for new elements
-    const infoCard = document.createElement('article')
-    const dateTitle = document.createElement('p')
-    const dateText = document.createElement('p')
-    const venueTitle = document.createElement('p')
-    const venueText = document.createElement('p')
-    const locationTitle = document.createElement('p')
-    const locationText = document.createElement('p')
-    const buyBtn = document.createElement('button')
+    let infoCard = addElement('section', "card")
+    let dateTitle = addElement('p', "card__subtitle")
+    let dateText = addElement('p', "card__date")
+    let venueTitle = addElement('p', "card__subtitle")
+    let venueText = addElement('p', "card__date")
+    let locationTitle = addElement('p', "card__subtitle")
+    let locationText = addElement('p', "card__date")
+    let buyBtn = addElement('button', "button")
 
-    //setting default value
-    dateTitle.innerText = "DATES"
-    venueTitle.innerText = "VENUE"
-    locationTitle.innerText = "LOCATION"
-    locationText.innerText = "San Francisco, CA"
-    buyBtn.innerHTML = "BUY TICKETS"
-
-    //setting class for all variables
-    infoCard.className = "card"
-    dateTitle.className = "card__subtitle"
-    dateText.className = "card__date"
-    venueTitle.className = "card__subtitle"
-    venueText.className = "card__text"
-    locationTitle.className = "card__subtitle"
-    locationText.className = "card__text"
-    buyBtn.className = "button"
+    //setting content
+    infoCard = infoCard("")
+    dateTitle = dateTitle("DATES")
+    venueTitle = venueTitle("VENUE")
+    locationTitle = locationTitle("LOCATION")
+    locationText = locationText("San Francisco, CA")
+    buyBtn = buyBtn("BUY TICKETS")
+    dateText = dateText(dateList[index])
+    venueText = venueText(venueList[index])
 
     //adding all data to HTML
-    dateText.innerText = dateList[i]
-    venueText.innerText = venueList[i]
-    infoCard.append(dateTitle,dateText,venueTitle,venueText,locationTitle,locationText,buyBtn);
-    mainBody.append(infoCard)
-}
+    
+    appendElement(infoCard,[dateTitle,dateText,venueTitle,venueText,locationTitle,locationText,buyBtn])
+    appendElement(mainBody, [infoCard])
+
+})
+
+
 
