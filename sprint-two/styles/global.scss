@@ -284,4 +284,8 @@ footer p {
 .button {
     @include button;
     @include mobile-headline-space;
+
+    @include tablet {
+        margin:0;
+    }
 }

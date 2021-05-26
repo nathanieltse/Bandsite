@@ -10,6 +10,7 @@ title.className="main__title"
 main.append(title)
 
 //subtitle for tablet and desktop
+const mainBody = document.createElement('section')
 const titleContainer = document.createElement('section')
 const dateTitle = document.createElement('p')
 const venueTitle = document.createElement('p')
@@ -23,15 +24,19 @@ locationTitle.innerText = "LOCATION"
 lastBox.innerText = ""
 
 //set class names
+mainBody.className = "main__body"
 titleContainer.className = "main__tablet-subtitle-box"
 dateTitle.className = "main__tablet-subtitle"
 venueTitle.className = "main__tablet-subtitle"
 locationTitle.className = "main__tablet-subtitle"
 lastBox.className = "main__tablet-subtitle"
 
+
 //add all elements to container
 titleContainer.append(dateTitle, venueTitle, locationTitle,lastBox)
-main.append(titleContainer)
+mainBody.append(titleContainer)
+main.append(mainBody)
+
 
 for(let i= 0; i < dateList.length; i++){
 
@@ -66,6 +71,6 @@ for(let i= 0; i < dateList.length; i++){
     dateText.innerText = dateList[i]
     venueText.innerText = venueList[i]
     infoCard.append(dateTitle,dateText,venueTitle,venueText,locationTitle,locationText,buyBtn);
-    main.append(infoCard)
+    mainBody.append(infoCard)
 }
 

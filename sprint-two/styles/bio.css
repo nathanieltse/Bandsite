@@ -14,12 +14,12 @@
   font-weight: 400;
 }
 .hero__text {
-  color: #FFFFFF;
   position: absolute;
   margin: 0 1rem;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
+  color: #FFFFFF;
 }
 @media (min-width: 768px) {
   .hero__text {

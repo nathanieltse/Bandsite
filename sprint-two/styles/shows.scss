@@ -41,22 +41,30 @@
     
     &__player {
 
+        @include tablet {
+            margin-top:$normal-before-headlines-space*2;
+        }
+        
         @include desktop {
             width: 30%;
         }
     }
-
     
 }
 
 .main {
     margin: $mobile-block-sidespace;
+    padding-bottom: $mobile-between-row-space;
 
     @include tablet {
-        margin: $tablet-block-sidespace
+        margin: $tablet-block-sidespace;
+        padding-bottom: $normal-between-row-space;
     }
 
     @include desktop {
+        @include flex-row {
+            justify-content: space-between;
+        }
         margin: $normal-block-sidespace;
     }
 
@@ -68,11 +76,18 @@
         }
     }
 
+    &__body {
+        @include desktop {
+            margin-top: $space-unit*2;
+            width: 80%;
+        }
+    }
+
     &__tablet-subtitle-box{
         display: none;
 
         @include tablet {
-            
+            @include normal-headline-space;
             @include flex-row{
                 justify-content: space-between;
             }
@@ -94,8 +109,10 @@
     @include tablet {
         @include flex-row{
             justify-content: space-between;
+            align-items: center;
         }
-        
+        padding-bottom: $normal-between-row-space/2;
+        margin-bottom: $normal-between-row-space/2;
     }
 
     &__subtitle {
@@ -105,7 +122,6 @@
         @include tablet {
             display: none;
         }
-
     } 
 
     &__date {
@@ -113,6 +129,8 @@
     }
 
     &__date, &__text {
-        width: 20%;
+        @include tablet {
+            width: 20%;
+        }
     }
 }

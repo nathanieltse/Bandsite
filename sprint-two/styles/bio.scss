@@ -7,20 +7,9 @@
 .hero {
     
     &__text {
+        @include hero-content;
         color: $primary-white;
-        position: absolute;
-        margin: $mobile-block-sidespace;
-        top:50%;
-        transform: translateY(-50%);
-        z-index: 1;
-
-        @include tablet{
-            margin: $tablet-block-sidespace;
-        }
-
-        @include desktop {
-            margin: $normal-block-sidespace;
-        }
+        
     }
 }
 

@@ -305,4 +305,9 @@ p {
     min-width: 9.375rem;
     padding: 0 2rem;
   }
+}
+@media (min-width: 768px) {
+  .button {
+    margin: 0;
+  }
 }/*# sourceMappingURL=global.css.map */
