@@ -11,23 +11,27 @@
 <body>
     <header class="header">
         <nav class="nav">
-            <a class="nav__link" href="./index.html">
-                <img class="nav__logo" src="./assets/logos/Logo-bandsite.svg" alt="bandsite logo">  
-            </a>
-            <ul class="nav__list">
-                <li class="nav__item nav__item--active">
-                    <a class="nav__link nav__link--active" href="">Biography</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="./pages/shows.html">Shows</a>
-                </li>
-            </ul>
+            <div class="nav__wrapper">
+                <a class="nav__link" href="./index.html">
+                    <img class="nav__logo" src="./assets/logos/Logo-bandsite.svg" alt="bandsite logo">  
+                </a>
+                <ul class="nav__list">
+                    <li class="nav__item nav__item--active">
+                        <a class="nav__link nav__link--active" href="">Biography</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="./pages/shows.html">Shows</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
         <section class="hero">
             <img class="hero__image" src="./assets/images/hero-bio.jpg" alt="flower background">
-            <h1 class="hero__text">
-                The Bees Knees
-            </h1>
+            <section class="hero__container">
+                <h1 class="hero__text">
+                    The Bees Knees
+                </h1>
+            </section>
         </section>
     </header>
     <main class="main">
@@ -83,135 +87,139 @@
             </section>
         </section>
         <section class="gallery">
-            <h2 class="gallery__title">
-                Photo Gallery
-            </h2>
-            <section class="gallery__imagewrap">
-                <ul class="gallery__image-row">
-                    <li class="gallery__item">
-                        <img class="gallery__image" src="./assets/images/Photo-gallery-1.jpg" alt="performance stage with audiance">
-                    </li>
-                    <li class="gallery__item">
-                        <img class="gallery__image" src="./assets/images/Photo-gallery-2.jpg" alt="a woman audiance with both hands up">
-                    </li>
-                    <li class="gallery__item">
-                        <img class="gallery__image" src="./assets/images/Photo-gallery-3.jpg" alt="audiance crowd with hands up">
-                    </li>
-                </ul>
-                <ul class="gallery__image-row">
-                    <li class="gallery__item">
-                        <img class="gallery__image" src="./assets/images/Photo-gallery-4.jpg" alt="a woman audiance with her hand up"> 
-                    </li>
-                    <li class="gallery__item">
-                        <img class="gallery__image" src="./assets/images/Photo-gallery-5.jpg" alt="stage effect with colorful confetti and smoke"> 
-                    </li>
-                    <li class="gallery__item">
-                        <img class="gallery__image" src="./assets/images/Photo-gallery-6.jpg" alt="singer with hand up and singing">   
-                    </li>
-                </ul>
-                <ul class="gallery__image-row">
-                    <li class="gallery__item">
-                        <img class="gallery__image" src="./assets/images/Photo-gallery-7.jpg" alt="photo of stage with rainbow color"> 
-                    </li>
-                    <li class="gallery__item">
-                        <img class="gallery__image" src="./assets/images/Photo-gallery-8.jpg" alt="DJ's hand on music mixer">  
-                    </li>
-                    <li class="gallery__item">
-                        <img class="gallery__image" src="./assets/images/Photo-gallery-9.jpg" alt="confetti falling on audiance area"> 
-                    </li>
-                </ul>
+            <div class="gallery__wrapper">
+                <h2 class="gallery__title">
+                    Photo Gallery
+                </h2>
+                <section class="gallery__imagewrap">
+                    <ul class="gallery__image-row">
+                        <li class="gallery__item">
+                            <img class="gallery__image" src="./assets/images/Photo-gallery-1.jpg" alt="performance stage with audiance">
+                        </li>
+                        <li class="gallery__item">
+                            <img class="gallery__image" src="./assets/images/Photo-gallery-2.jpg" alt="a woman audiance with both hands up">
+                        </li>
+                        <li class="gallery__item">
+                            <img class="gallery__image" src="./assets/images/Photo-gallery-3.jpg" alt="audiance crowd with hands up">
+                        </li>
+                    </ul>
+                    <ul class="gallery__image-row">
+                        <li class="gallery__item">
+                            <img class="gallery__image" src="./assets/images/Photo-gallery-4.jpg" alt="a woman audiance with her hand up"> 
+                        </li>
+                        <li class="gallery__item">
+                            <img class="gallery__image" src="./assets/images/Photo-gallery-5.jpg" alt="stage effect with colorful confetti and smoke"> 
+                        </li>
+                        <li class="gallery__item">
+                            <img class="gallery__image" src="./assets/images/Photo-gallery-6.jpg" alt="singer with hand up and singing">   
+                        </li>
+                    </ul>
+                    <ul class="gallery__image-row">
+                        <li class="gallery__item">
+                            <img class="gallery__image" src="./assets/images/Photo-gallery-7.jpg" alt="photo of stage with rainbow color"> 
+                        </li>
+                        <li class="gallery__item">
+                            <img class="gallery__image" src="./assets/images/Photo-gallery-8.jpg" alt="DJ's hand on music mixer">  
+                        </li>
+                        <li class="gallery__item">
+                            <img class="gallery__image" src="./assets/images/Photo-gallery-9.jpg" alt="confetti falling on audiance area"> 
+                        </li>
+                    </ul>
                 </section>
+            </div>
         </section>
     </main>
     <footer class="footer">
-        <section class="footer__header">
-            <h2 class="footer__title">
-                Get in Touch
-            </h2>
-            <section class="footer__social">
-                <a class="footer__link"><img class="footer__social-icon" src="./assets/icons/Icon-instagram.svg" alt="instagram"></a>
-                <a class="footer__link"><img class="footer__social-icon" src="./assets/icons/Icon-facebook.svg" alt="facebook"></a>
-                <a class="footer__link"><img class="footer__social-icon" src="./assets/icons/Icon-twitter.svg" alt="twitter"></a>
+        <div class="footer__wrapper">
+            <section class="footer__header">
+                <h2 class="footer__title">
+                    Get in Touch
+                </h2>
+                <section class="footer__social">
+                    <a class="footer__link"><img class="footer__social-icon" src="./assets/icons/Icon-instagram.svg" alt="instagram"></a>
+                    <a class="footer__link"><img class="footer__social-icon" src="./assets/icons/Icon-facebook.svg" alt="facebook"></a>
+                    <a class="footer__link"><img class="footer__social-icon" src="./assets/icons/Icon-twitter.svg" alt="twitter"></a>
+                </section>
+                <img class="footer__top-logo" src="./assets/logos/Logo-bandsite.svg" alt="bandsite logo">
             </section>
-            <img class="footer__top-logo" src="./assets/logos/Logo-bandsite.svg" alt="bandsite logo">
-        </section>
-        <section class="footer__contact">
-            <article class="contact-card">
-                <div class="contact-card__wrapper">
-                    <p class="contact-card__name">
-                        Cam Adams
-                    </p>
-                    <p class="contact-card__company">
-                        The Bees Knees Management
-                    </p>
-                </div>
-                <div class="contact-card__wrapper">
-                    <p class="contact-card__address">
-                        503 Broadway Penthouse,
-                    </p>
-                    <p class="contact-card__address">
-                        New York, NY 10012, USA
-                    </p>
-                </div>
-                <div class="contact-card__wrapper"></div>
-                    <a href="mailto:info@thebeesknees.com" class="contact-card__email">
-                        info@thebeesknees.com
-                    </a>
-                </div>
-            </article>
-            <article class="contact-card">
-                <div class="contact-card__wrapper">
-                    <p class="contact-card__name">
-                        Pearl Gregg
-                    </p>
-                    <p class="contact-card__company">
-                        Limitless Artist Group
-                    </p>
-                </div>
-                <div class="contact-card__wrapper">
-                    <p class="contact-card__info">
-                        Booking Agent for
-                    </p>
-                    <p class="contact-card__info">
-                        US / South America / Japan
-                    </p>
-                </div>
-                <div class="contact-card__wrapper">
-                    <a href="mailto:pearl.gregg@limitlessag.com" class="contact-card__email">
-                        pearl.gregg@limitlessag.com
-                    </a>
-                </div>
-            </article>
-            <article class="contact-card">
-                <div class="contact-card__wrapper">
-                    <p class="contact-card__name">
-                        Carson Whyte
-                    </p>
-                    <p class="contact-card__company">
-                        ARCH Entertainment
-                    </p>
-                </div>
-                <div class="contact-card__wrapper">
-                    <p class="contact-card__info">
-                        Booking Agent for
-                    </p>
-                    <p class="contact-card__info">
-                        UK / EU / AU
-                    </p>
-                </div>
-                <div class="contact-card__wrapper">
-                    <a href="mailto:cwhyte@archentertainment.com" class="contact-card__email">
-                        cwhyte@archentertainment.com
-                    </a>
-                </div>
-            </article>
-        </section>
-        <section class="footer__fineprint">
-            <img class="footer__btm-logo" src="./assets/logos/Logo-bandsite.svg" alt="bandsite logo">
-            <p class="footer__copyright">
-                Copyright The Bees Knees © 2021 All Rights Reserved
-            </p>
-        </section>
+            <section class="footer__contact">
+                <article class="contact-card">
+                    <div class="contact-card__wrapper">
+                        <p class="contact-card__name">
+                            Cam Adams
+                        </p>
+                        <p class="contact-card__company">
+                            The Bees Knees Management
+                        </p>
+                    </div>
+                    <div class="contact-card__wrapper">
+                        <p class="contact-card__address">
+                            503 Broadway Penthouse,
+                        </p>
+                        <p class="contact-card__address">
+                            New York, NY 10012, USA
+                        </p>
+                    </div>
+                    <div class="contact-card__wrapper">
+                        <a href="mailto:info@thebeesknees.com" class="contact-card__email">
+                            info@thebeesknees.com
+                        </a>
+                    </div>
+                </article>
+                <article class="contact-card">
+                    <div class="contact-card__wrapper">
+                        <p class="contact-card__name">
+                            Pearl Gregg
+                        </p>
+                        <p class="contact-card__company">
+                            Limitless Artist Group
+                        </p>
+                    </div>
+                    <div class="contact-card__wrapper">
+                        <p class="contact-card__info">
+                            Booking Agent for
+                        </p>
+                        <p class="contact-card__info">
+                            US / South America / Japan
+                        </p>
+                    </div>
+                    <div class="contact-card__wrapper">
+                        <a href="mailto:pearl.gregg@limitlessag.com" class="contact-card__email">
+                            pearl.gregg@limitlessag.com
+                        </a>
+                    </div>
+                </article>
+                <article class="contact-card">
+                    <div class="contact-card__wrapper">
+                        <p class="contact-card__name">
+                            Carson Whyte
+                        </p>
+                        <p class="contact-card__company">
+                            ARCH Entertainment
+                        </p>
+                    </div>
+                    <div class="contact-card__wrapper">
+                        <p class="contact-card__info">
+                            Booking Agent for
+                        </p>
+                        <p class="contact-card__info">
+                            UK / EU / AU
+                        </p>
+                    </div>
+                    <div class="contact-card__wrapper">
+                        <a href="mailto:cwhyte@archentertainment.com" class="contact-card__email">
+                            cwhyte@archentertainment.com
+                        </a>
+                    </div>
+                </article>
+            </section>
+            <section class="footer__fineprint">
+                <img class="footer__btm-logo" src="./assets/logos/Logo-bandsite.svg" alt="bandsite logo">
+                <p class="footer__copyright">
+                    Copyright The Bees Knees © 2021 All Rights Reserved
+                </p>
+            </section>
+        </div>
     </footer>
 </body>
 </html>

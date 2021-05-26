@@ -6,23 +6,24 @@
 
 .hero {
     
-    &__text {
+    &__container {
         @include hero-content;
+
+        @include desktop {
+            width: auto;
+            left: 0%;
+            right: 0%;
+        }
+    }
+
+    &__text {
+        display: block;
         color: $primary-white;
-        
     }
 }
 
 .about {
-    margin: $mobile-block-sidespace;
-
-    @include tablet {
-        margin: $tablet-block-sidespace
-    }
-
-    @include desktop {
-        margin: $normal-block-sidespace;
-    }
+    @include wrapper-sidespace;
 
     &__title, &__subtitle {
         @include mobile-headline-space;
@@ -83,17 +84,19 @@
 }
 .gallery {
     background-color: $secondary-white;
-    padding: $mobile-block-sidespace;
 
     @include tablet {
-        padding: $tablet-block-sidespace;
         padding-bottom: $normal-between-row-space;
     }
 
     @include desktop {
-        padding: $normal-block-sidespace;
         padding-bottom: $normal-between-row-space;
     }
+
+    &__wrapper{
+        @include wrapper-sidespace 
+    }
+    
 
     &__title {
         @include mobile-headline-space;

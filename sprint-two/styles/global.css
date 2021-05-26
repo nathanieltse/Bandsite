@@ -81,18 +81,32 @@ p {
 }
 
 .nav {
-  text-align: center;
   padding-top: 1.5rem;
 }
 @media (min-width: 768px) {
   .nav {
-    display: flex;
-    padding: 0 2.25rem;
+    padding-top: 0;
+  }
+}
+.nav__wrapper {
+  margin: 0 1rem;
+  text-align: center;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .nav__wrapper {
+    margin: 0 2.25rem;
   }
 }
 @media (min-width: 1280px) {
-  .nav {
-    padding: 0 6rem;
+  .nav__wrapper {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+@media (min-width: 768px) {
+  .nav__wrapper {
+    display: flex;
   }
 }
 .nav__logo {
@@ -171,20 +185,23 @@ p {
 
 .footer {
   background-color: #323232;
-  padding: 0 1rem;
-}
-@media (min-width: 768px) {
-  .footer {
-    padding: 0 2.25rem;
-  }
-}
-@media (min-width: 1280px) {
-  .footer {
-    padding: 0 6rem;
-  }
 }
 .footer * {
   color: #FFFFFF;
+}
+.footer__wrapper {
+  margin: 0 1rem;
+}
+@media (min-width: 768px) {
+  .footer__wrapper {
+    margin: 0 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__wrapper {
+    max-width: 1200px;
+    margin: auto;
+  }
 }
 @media (min-width: 768px) {
   .footer__header {
@@ -296,6 +313,7 @@ p {
 }
 .button:hover {
   background-color: #000000;
+  cursor: pointer;
 }
 @media (min-width: 768px) {
   .button {

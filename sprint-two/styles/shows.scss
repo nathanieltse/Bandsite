@@ -7,26 +7,29 @@
 .hero {
 
     &__container {
-        margin: $mobile-block-sidespace;
-        position: absolute;
-        z-index: 1;
-        top:50%;
-        transform: translateY(-50%);
+        @include hero-content;
         
         @include tablet{
             width: 60%;
-            margin: $tablet-block-sidespace;
         }
 
         @include desktop {
             @include flex-row{
                 justify-content: space-between;
+                align-items: flex-end;
             }
             width: auto;
             left: 0%;
             right: 0%;
-            margin: $normal-block-sidespace;
         }
+    }
+
+    &__body {
+
+        @include desktop {
+            width: 45%;
+        }
+        
     }
 
     &__title {
@@ -36,7 +39,6 @@
     &__text {
         @include mobile-headline-space;
         color: $primary-white;
-        
     }
     
     &__player {
@@ -46,18 +48,18 @@
         }
         
         @include desktop {
-            width: 30%;
+            margin-top:0;
+            width: 40%;
         }
     }
     
 }
 
 .main {
-    margin: $mobile-block-sidespace;
+    @include wrapper-sidespace;
     padding-bottom: $mobile-between-row-space;
 
     @include tablet {
-        margin: $tablet-block-sidespace;
         padding-bottom: $normal-between-row-space;
     }
 
@@ -65,7 +67,6 @@
         @include flex-row {
             justify-content: space-between;
         }
-        margin: $normal-block-sidespace;
     }
 
     &__title {

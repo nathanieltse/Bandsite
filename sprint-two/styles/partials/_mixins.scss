@@ -23,6 +23,19 @@
     margin: $normal-before-headlines-space 0 $normal-after-headlines-space;
 }
 
+@mixin wrapper-sidespace {
+    margin:$mobile-block-sidespace;
+
+    @include tablet {
+        margin:$tablet-block-sidespace;
+    }
+
+    @include desktop {
+        max-width: $max-size;
+        margin: auto;
+    }
+}
+
 @mixin tablet {
     @media (min-width:$tablet-size) {
         @content;
@@ -38,19 +51,13 @@
 //elements mixins
 
 @mixin hero-content {
+    @include wrapper-sidespace;
     position: absolute;
-    margin: $mobile-block-sidespace;
     top:50%;
     transform: translateY(-50%);
     z-index: 1;
 
-    @include tablet{
-        margin: $tablet-block-sidespace;
-    }
-
-    @include desktop {
-        margin: $normal-block-sidespace;
-    }
+    
 }
 
 @mixin reset-list {
@@ -80,7 +87,8 @@
     color: $primary-white;
 
     &:hover {
-        background-color: $secondary-color
+        background-color: $secondary-color;
+        cursor: pointer;
     }
     @include tablet {
         font-size: $normal-label-button-font;

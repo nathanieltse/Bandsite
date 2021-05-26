@@ -70,17 +70,22 @@ footer p {
 }
 
 .nav {
-    text-align: center;
     padding-top:$mobile-before-headlines-space;
 
-
     @include tablet {
-        @include flex-row ;
-        padding:$tablet-block-sidespace;
+        padding-top: 0;
     }
 
-    @include desktop {
-        padding: $normal-block-sidespace;
+    &__wrapper {
+        @include wrapper-sidespace;
+        text-align: center;
+        margin:0;
+
+        @include tablet {
+            @include flex-row;
+            
+        }
+
     }
 
     &__logo {
@@ -163,20 +168,15 @@ footer p {
 
 .footer {
     background-color: $primary-color;
-    padding: $mobile-block-sidespace;
-
-    @include tablet {
-        padding:$tablet-block-sidespace; 
-    }
-
-    @include desktop {
-        padding: $normal-block-sidespace;
-    }
 
     & * {
         color: $primary-white;
     }
 
+    &__wrapper{
+        @include wrapper-sidespace;
+    }
+    
     &__header {
         @include tablet {
             @include flex-row{
