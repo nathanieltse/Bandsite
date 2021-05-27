@@ -37,10 +37,12 @@ const addEmptyElement = (element, className) => {
 const main = document.querySelector('.main')
 
 //variable for new elements
-let commentBody = addEmptyElement("section", "comment")
+let commentcontainer = addEmptyElement("section", "comment")
 let wrapper = addEmptyElement("div", "comment__wrapper")
 let header = addElement("h2", "comment__title")
+let commentBody = addEmptyElement("section", "comment__body")
 let form = addEmptyElement("form", "form")
+let avatar = addEmptyElement("div", "form__avatar")
 let profile = addEmptyElement("img","form__profile")
 let inputWrapper = addEmptyElement("div", "form__wrapper")
 let nameLabel = addElement("label", "form__label")
@@ -69,12 +71,17 @@ commentBox.required = true
 submit.type="submit"
 
 
-//adding all elements  
+//adding all elements
+avatar.append(profile)
 inputWrapper.append(nameLabel,nameBox,commentLabel,commentBox,submit)
-form.append(profile,inputWrapper)
-wrapper.append(header,form) 
-commentBody.append(wrapper)
-main.append(commentBody)
+form.append(avatar,inputWrapper)
+commentBody.append(form)
+wrapper.append(header,commentBody)
+commentcontainer.append(wrapper)
+main.append(commentcontainer)
 
-console.log(submit)
+//all comments
+comments.forEach(comment => {
+    //all new elements
+});
 
