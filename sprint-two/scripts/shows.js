@@ -30,11 +30,11 @@ appendElement(main, [title])
 
 //subtitle for tablet and desktop
 let mainBody = addElement("section", "main__body")
-let titleContainer = addElement("section", "main__tablet-subtitle-box")
-let dateTitle = addElement("p", "main__tablet-subtitle")
-let venueTitle = addElement("p", "main__tablet-subtitle")
-let locationTitle = addElement("p", "main__tablet-subtitle")
-let lastBox = addElement("p", "main__tablet-subtitle")
+let titleContainer = addElement("ul", "main__tablet-subtitle-box")
+let dateTitle = addElement("li", "main__tablet-subtitle")
+let venueTitle = addElement("li", "main__tablet-subtitle")
+let locationTitle = addElement("li", "main__tablet-subtitle")
+let lastBox = addElement("li", "main__tablet-subtitle")
 
 //set default text
 mainBody = mainBody("")
@@ -53,13 +53,13 @@ appendElement(main, [mainBody])
 dateList.forEach((element, index) => {
 
     //variable for new elements
-    let infoCard = addElement('section', "card")
-    let dateTitle = addElement('p', "card__subtitle")
-    let dateText = addElement('p', "card__date")
-    let venueTitle = addElement('p', "card__subtitle")
-    let venueText = addElement('p', "card__date")
-    let locationTitle = addElement('p', "card__subtitle")
-    let locationText = addElement('p', "card__date")
+    let infoCard = addElement('ul', "card")
+    let dateTitle = addElement('li', "card__subtitle")
+    let dateText = addElement('li', "card__date")
+    let venueTitle = addElement('li', "card__subtitle")
+    let venueText = addElement('li', "card__text")
+    let locationTitle = addElement('li', "card__subtitle")
+    let locationText = addElement('li', "card__text")
     let buyBtn = addElement('button', "button")
 
     //setting content
@@ -79,5 +79,17 @@ dateList.forEach((element, index) => {
 
 })
 
+//button function
+document.querySelectorAll(".button").forEach(button => {
+    button.addEventListener("click", (e) => buttonFunction(e))
+})
 
+const buttonFunction = (e) => {
+    const location = e.target.parentNode.querySelectorAll('.card__text')
+    const address = ["Venue location: "]
+    location.forEach(tag => {
+        address.push(tag.textContent)
+    })
+    console.log(address.join(' '))
+}
 

@@ -101,7 +101,7 @@ p {
 @media (min-width: 1280px) {
   .nav__wrapper {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
   }
 }
 @media (min-width: 768px) {
@@ -200,7 +200,7 @@ p {
 @media (min-width: 1280px) {
   .footer__wrapper {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
   }
 }
 @media (min-width: 768px) {

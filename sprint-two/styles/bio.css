@@ -28,7 +28,7 @@
 @media (min-width: 1280px) {
   .hero__container {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
   }
 }
 @media (min-width: 1280px) {
@@ -54,7 +54,7 @@
 @media (min-width: 1280px) {
   .about {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
   }
 }
 .about__title, .about__subtitle {
@@ -135,7 +135,7 @@
 @media (min-width: 1280px) {
   .gallery__wrapper {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
   }
 }
 .gallery__title {

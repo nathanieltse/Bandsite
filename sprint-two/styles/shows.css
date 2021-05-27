@@ -28,7 +28,7 @@
 @media (min-width: 1280px) {
   .hero__container {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
   }
 }
 @media (min-width: 768px) {
@@ -82,7 +82,7 @@
 @media (min-width: 1280px) {
   .main {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
   }
 }
 @media (min-width: 768px) {
@@ -115,6 +115,9 @@
 }
 @media (min-width: 768px) {
   .main__tablet-subtitle-box {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     margin: 3rem 0 2.25rem;
     display: flex;
     justify-content: space-between;
@@ -135,6 +138,9 @@
 }
 
 .card {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   border-bottom: 0.0625rem solid #E1E1E1;
   margin-bottom: 1rem;
 }

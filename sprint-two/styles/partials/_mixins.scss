@@ -33,7 +33,7 @@
 
     @include desktop {
         max-width: $max-size;
-        margin: auto;
+        margin: $normal-block-sidespace;
     }
 }
 
