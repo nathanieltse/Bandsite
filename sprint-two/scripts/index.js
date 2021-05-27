@@ -83,9 +83,10 @@ main.append(commentcontainer)
 //all comments
 comments.forEach(comment => {
     //all new elements
-    const commentContent = addEmptyElement("section", "comment__content")
+    const commentBody = addEmptyElement("section", "comment__body")
+    const commentCard = addEmptyElement("article", "comment__card")
     const avatar = addEmptyElement("div", "comment__avatar")
-    const commentSubWrapper = addEmptyElement("div", "comment__wrapper")
+    const commentSubWrapper = addEmptyElement("div", "comment__sub-wrapper")
     let commentName = addElement("p","comment__name")
     let commentText = addElement("p", "comment__text")
     let commentDate = addElement("p", "comment__date")
@@ -97,7 +98,8 @@ comments.forEach(comment => {
 
     // adding all elements
     commentSubWrapper.append(commentName, commentDate,commentText)
-    commentContent.append(avatar, commentSubWrapper)
-    commentWrapper.append(commentContent)
+    commentCard.append(avatar, commentSubWrapper)
+    commentBody.append(commentCard)
+    commentWrapper.append(commentBody)
 });
 

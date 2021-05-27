@@ -210,6 +210,35 @@
     padding: 0 18rem;
   }
 }
+.comment__card {
+  display: flex;
+  border-bottom: 0.0625rem solid #E1E1E1;
+}
+.comment__avatar {
+  background-color: #E1E1E1;
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 1.5rem 1rem 0 0;
+}
+@media (min-width: 768px) {
+  .comment__avatar {
+    width: 3rem;
+    height: 3rem;
+    margin: 1.5rem 1.5rem 0 0;
+  }
+}
+.comment__sub-wrapper {
+  width: 90%;
+}
+.comment__name {
+  font-weight: 600;
+  color: #323232;
+  margin-bottom: 0.25rem;
+}
+.comment__date {
+  color: #AFAFAF;
+}
 
 .form {
   display: flex;

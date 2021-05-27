@@ -145,7 +145,7 @@
     }
     
     &__body {
-
+        
         @include tablet {
             padding:0 $normal-between-row-space*2;
         }
@@ -153,6 +153,29 @@
         @include desktop {
             padding:0 $normal-between-row-space*8;
         }
+    }
+
+    &__card {
+        @include flex-row;
+        @include divider;
+    }
+
+    &__avatar {
+        @include avatar;
+    }
+
+    &__sub-wrapper {
+        width: 90%
+    }
+
+    &__name {
+        font-weight: $weight-demi;
+        color:$primary-color;
+        margin-bottom: $space-unit/2;
+    }
+
+    &__date {
+        color: $primary-neutral-color;
     }
 
 
