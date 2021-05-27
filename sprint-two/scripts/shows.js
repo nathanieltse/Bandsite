@@ -1,6 +1,6 @@
 //all data list
-let dateList = ["Mon Sept 06 2021", "Tue Sept 21 2021", "Fri Oct 15 2021", "Sat Nov 06 2021", "Fri Nov 26 2021", "Wed Dec 15 2021"]
-let venueList = ["Ronald Lane", "Pier 3 East", "View Lounge", "Hyatt Agency", "Moscow Center", "Press Club"]
+const dateList = ["Mon Sept 06 2021", "Tue Sept 21 2021", "Fri Oct 15 2021", "Sat Nov 06 2021", "Fri Nov 26 2021", "Wed Dec 15 2021"]
+const venueList = ["Ronald Lane", "Pier 3 East", "View Lounge", "Hyatt Agency", "Moscow Center", "Press Club"]
 
 
 //function for adding element
@@ -13,19 +13,13 @@ const addElement = (element, className) => {
     }
 }
 
-const appendElement = (parentElment, child) => {
-    child.forEach(element => {
-        parentElment.append(element)
-    })
-}
-
 //selecting body 
 const main = document.querySelector('.main')
 
 //adding title
 let title = addElement("h2", "main__title")
 title = title("Shows")
-appendElement(main, [title])
+main.append(title)
 
 
 //subtitle for tablet and desktop
@@ -46,9 +40,9 @@ lastBox = lastBox("")
 
 
 //add all elements to container
-appendElement(titleContainer, [dateTitle, venueTitle, locationTitle,lastBox])
-appendElement(mainBody, [titleContainer])
-appendElement(main, [mainBody])
+titleContainer.append(dateTitle, venueTitle, locationTitle,lastBox)
+mainBody.append(titleContainer)
+main.append(mainBody)
 
 dateList.forEach((element, index) => {
 
@@ -74,8 +68,8 @@ dateList.forEach((element, index) => {
 
     //adding all data to HTML
     
-    appendElement(infoCard,[dateTitle,dateText,venueTitle,venueText,locationTitle,locationText,buyBtn])
-    appendElement(mainBody, [infoCard])
+    infoCard.append(dateTitle,dateText,venueTitle,venueText,locationTitle,locationText,buyBtn)
+    mainBody.append(infoCard)
 
 })
 

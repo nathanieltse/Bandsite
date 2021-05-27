@@ -23,14 +23,11 @@
 }
 
 .about {
+    background-color: $primary-white;
     @include wrapper-sidespace;
 
     &__title, &__subtitle {
-        @include mobile-headline-space;
-
-        @include tablet {
-            @include normal-headline-space;
-        }
+        @include headline-row-space
     }
 
     &__body {
@@ -99,12 +96,9 @@
     
 
     &__title {
-        @include mobile-headline-space;
+        @include headline-row-space;
         display:inline-block;
 
-        @include tablet {
-            @include normal-headline-space;
-        }
     }
 
     &__imagewrap {
@@ -138,3 +132,56 @@
     }
 }
 
+.comment {
+    background-color: $primary-white;
+
+    &__wrapper {
+        @include wrapper-sidespace;
+    }
+
+    &__title {
+        @include headline-row-space;
+
+    }
+
+}
+.form {
+    @include flex-row;
+    @include divider;
+
+    &__wrapper {
+        width:100%;
+    }
+
+    &__profile {
+        @include avator;        
+    }
+
+    &__label {
+        @include label;
+    }
+
+    &__nameinput, &__commentinput {
+        @include formfield;
+        box-sizing: border-box;
+    }
+
+    &__nameinput {
+        margin-bottom:$mobile-between-row-space;
+
+        @include tablet {
+            margin-bottom:$normal-between-row-space;
+        }
+    }
+
+    &__commentinput {
+        height:$space-unit*10;
+        
+    }
+
+    &__submit {
+        @include button;
+        display: block;
+        margin:$mobile-between-row-space 0;
+    }
+}
