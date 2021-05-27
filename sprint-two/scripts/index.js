@@ -37,21 +37,21 @@ const addEmptyElement = (element, className) => {
 const main = document.querySelector('.main')
 
 //variable for new elements
-let commentcontainer = addEmptyElement("section", "comment")
-let wrapper = addEmptyElement("div", "comment__wrapper")
+const commentcontainer = addEmptyElement("section", "comment")
+const commentWrapper = addEmptyElement("div", "comment__wrapper")
+const commentBody = addEmptyElement("section", "comment__body")
+const form = addEmptyElement("form", "form")
+const avatar = addEmptyElement("div", "form__avatar")
+const profile = addEmptyElement("img","form__profile")
+const inputWrapper = addEmptyElement("div", "form__wrapper")
+const nameBox = addEmptyElement("input", "form__nameinput")
+const commentBox = addEmptyElement("textarea", "form__commentinput")
 let header = addElement("h2", "comment__title")
-let commentBody = addEmptyElement("section", "comment__body")
-let form = addEmptyElement("form", "form")
-let avatar = addEmptyElement("div", "form__avatar")
-let profile = addEmptyElement("img","form__profile")
-let inputWrapper = addEmptyElement("div", "form__wrapper")
 let nameLabel = addElement("label", "form__label")
-let nameBox = addEmptyElement("input", "form__nameinput")
 let commentLabel = addElement("label","form__label")
-let commentBox = addEmptyElement("textarea", "form__commentinput")
 let submit = addElement("button","form__submit")
 
-//add text
+//adding text
 header = header("Join the Conversation")
 nameLabel = nameLabel("NAME")
 commentLabel = commentLabel("COMMENT")
@@ -76,12 +76,28 @@ avatar.append(profile)
 inputWrapper.append(nameLabel,nameBox,commentLabel,commentBox,submit)
 form.append(avatar,inputWrapper)
 commentBody.append(form)
-wrapper.append(header,commentBody)
-commentcontainer.append(wrapper)
+commentWrapper.append(header,commentBody)
+commentcontainer.append(commentWrapper)
 main.append(commentcontainer)
 
 //all comments
 comments.forEach(comment => {
     //all new elements
+    const commentContent = addEmptyElement("section", "comment__content")
+    const avatar = addEmptyElement("div", "comment__avatar")
+    const commentSubWrapper = addEmptyElement("div", "comment__wrapper")
+    let commentName = addElement("p","comment__name")
+    let commentText = addElement("p", "comment__text")
+    let commentDate = addElement("p", "comment__date")
+
+    //adding text
+    commentName = commentName(comment.fullName)
+    commentText = commentText(comment.comment)
+    commentDate = commentDate(comment.date)
+
+    // adding all elements
+    commentSubWrapper.append(commentName, commentDate,commentText)
+    commentContent.append(avatar, commentSubWrapper)
+    commentWrapper.append(commentContent)
 });
 

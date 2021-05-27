@@ -27,8 +27,7 @@
 }
 @media (min-width: 1280px) {
   .hero__container {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 6rem;
   }
 }
 @media (min-width: 768px) {
@@ -81,8 +80,7 @@
 }
 @media (min-width: 1280px) {
   .main {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 6rem;
   }
 }
 @media (min-width: 768px) {
@@ -129,7 +127,7 @@
   font-weight: 700;
   color: #AFAFAF;
   margin-bottom: 0.25rem;
-  width: 20%;
+  width: 9.375rem;
 }
 @media (min-width: 768px) {
   .main__tablet-subtitle {
@@ -178,6 +176,36 @@
 }
 @media (min-width: 768px) {
   .card__date, .card__text {
-    width: 20%;
+    width: 9.375rem;
+  }
+}
+
+.button {
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  border-style: none;
+  background-color: #323232;
+  color: #FFFFFF;
+  margin: 1.5rem 0 1rem;
+}
+.button:hover {
+  background-color: #000000;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .button {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    width: 9.375rem;
+    padding: 0 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .button {
+    margin: 0;
   }
 }/*# sourceMappingURL=shows.css.map */

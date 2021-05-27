@@ -27,8 +27,7 @@
 }
 @media (min-width: 1280px) {
   .hero__container {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 6rem;
   }
 }
 @media (min-width: 1280px) {
@@ -54,8 +53,7 @@
 }
 @media (min-width: 1280px) {
   .about {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 6rem;
   }
 }
 .about__title, .about__subtitle {
@@ -135,8 +133,7 @@
 }
 @media (min-width: 1280px) {
   .gallery__wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 6rem;
   }
 }
 .gallery__title {
@@ -192,8 +189,7 @@
 }
 @media (min-width: 1280px) {
   .comment__wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 6rem;
   }
 }
 .comment__title {
@@ -204,27 +200,43 @@
     margin: 3rem 0 2.25rem;
   }
 }
+@media (min-width: 768px) {
+  .comment__body {
+    padding: 0 4.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .comment__body {
+    padding: 0 18rem;
+  }
+}
 
 .form {
   display: flex;
   border-bottom: 0.0625rem solid #E1E1E1;
 }
 .form__wrapper {
-  width: 100%;
+  flex-grow: 2;
 }
-.form__profile {
+.form__avatar {
   background-color: #E1E1E1;
   border-radius: 50%;
   width: 2.25rem;
   height: 2.25rem;
   margin: 1.5rem 1rem 0 0;
+  position: relative;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
-  .form__profile {
+  .form__avatar {
     width: 3rem;
     height: 3rem;
     margin: 1.5rem 1.5rem 0 0;
   }
+}
+.form__profile {
+  position: absolute;
+  height: 100%;
 }
 .form__label {
   font-size: 0.625rem;
@@ -278,11 +290,6 @@
 .form__nameinput {
   margin-bottom: 1rem;
 }
-@media (min-width: 768px) {
-  .form__nameinput {
-    margin-bottom: 2.25rem;
-  }
-}
 .form__commentinput {
   height: 5rem;
 }
@@ -307,8 +314,12 @@
   .form__submit {
     font-size: 0.75rem;
     line-height: 1.25rem;
-    width: 20%;
-    min-width: 9.375rem;
+    width: 9.375rem;
     padding: 0 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .form__submit {
+    margin-left: auto;
   }
 }/*# sourceMappingURL=bio.css.map */

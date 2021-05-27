@@ -98,7 +98,8 @@
 
     &__tablet-subtitle {
         @include label;
-        width: 20%;
+        width: $space-unit*18.75;
+
     }
 
 
@@ -116,6 +117,7 @@
         }
         padding-bottom: $normal-between-row-space/2;
         margin-bottom: $normal-between-row-space/2;
+        
     }
 
     &__subtitle {
@@ -133,7 +135,16 @@
 
     &__date, &__text {
         @include tablet {
-            width: 20%;
+            width: $space-unit*18.75;
         }
+    }
+}
+
+.button {
+    @include button;
+    @include mobile-headline-space;
+
+    @include tablet {
+        margin:0;
     }
 }

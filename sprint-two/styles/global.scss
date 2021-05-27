@@ -259,7 +259,7 @@ footer p {
         padding: $mobile-between-row-space 0;
 
         @include tablet {
-            padding:$normal-between-row-space 0;
+            padding:$normal-before-headlines-space 0;
         }
     }
 }
@@ -288,11 +288,3 @@ footer p {
     }
 }
 
-.button {
-    @include button;
-    @include mobile-headline-space;
-
-    @include tablet {
-        margin:0;
-    }
-}

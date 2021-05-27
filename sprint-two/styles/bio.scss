@@ -143,6 +143,19 @@
         @include headline-row-space;
 
     }
+    
+    &__body {
+
+        @include tablet {
+            padding:0 $normal-between-row-space*2;
+        }
+
+        @include desktop {
+            padding:0 $normal-between-row-space*8;
+        }
+    }
+
+
 
 }
 .form {
@@ -150,12 +163,21 @@
     @include divider;
 
     &__wrapper {
-        width:100%;
+        flex-grow: 2;
+    }
+
+
+    &__avatar {
+        @include avatar;   
+        // background: url("../assets/images/Mohan-muruge.jpg") center/cover ;
+        position: relative;
+        overflow: hidden;
     }
 
     &__profile {
-        @include avator;        
-    }
+        position: absolute;
+        height: 100%;
+    }    
 
     &__label {
         @include label;
@@ -168,10 +190,6 @@
 
     &__nameinput {
         margin-bottom:$mobile-between-row-space;
-
-        @include tablet {
-            margin-bottom:$normal-between-row-space;
-        }
     }
 
     &__commentinput {
@@ -183,5 +201,9 @@
         @include button;
         display: block;
         margin:$mobile-between-row-space 0;
+
+        @include tablet {
+            margin-left: auto;
+        }
     }
 }

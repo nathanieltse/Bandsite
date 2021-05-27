@@ -40,7 +40,6 @@
     }
 
     @include desktop {
-        max-width: $max-size;
         margin: $normal-block-sidespace;
     }
 }
@@ -101,8 +100,8 @@
     @include tablet {
         font-size: $normal-label-button-font;
         line-height: $normal-label-button-line-height;
-        width: 20%;
-        min-width: 9.375rem;
+        // width: 20%;
+        width: 9.375rem;
         padding:0 2rem;
     }
 } 
@@ -120,7 +119,7 @@
     }
 }
 
-@mixin avator {
+@mixin avatar {
     background-color: $secondary-neutral-color;
     border-radius: 50%;
     width: 2.25rem;
