@@ -33,13 +33,61 @@ const addEmptyElement = (element, className) => {
     return el
 }
 
+//function for displaying comment
+const displayComment = (comment) => {
+    //all new elements
+    const commentBody = addEmptyElement("section", "comment__body")
+    const commentCard = addEmptyElement("article", "comment__card")
+    const avatar = addEmptyElement("div", "comment__avatar")
+    const commentSubWrapper = addEmptyElement("div", "comment__sub-wrapper")
+    let commentName = addElement("p","comment__name")
+    let commentText = addElement("p", "comment__text")
+    let commentDate = addElement("p", "comment__date")
+
+    //adding text
+    commentName = commentName(comment.fullName)
+    commentText = commentText(comment.comment)
+    commentDate = commentDate(dateConvert(comment.date))
+
+    // adding all elements
+    commentSubWrapper.append(commentName, commentDate,commentText)
+    commentCard.append(avatar, commentSubWrapper)
+    commentBody.append(commentCard)
+    commentWrapper.append(commentBody)
+
+}
+
+//function for convert date
+const dateConvert = (date) => {
+    const today = new Date()
+
+    const pastMonth = Number(date.slice(0,2))-1
+    const pastDay = Number(date.slice(3,5))
+    const pastYear = Number(date.slice(6,10))
+    const past = new Date(pastYear,pastMonth, pastDay)
+
+    //calculate millisecond to day difference
+    let difference = today.getTime() - past.getTime()
+    difference = difference/(24*60*60*1000)
+
+    if (difference < 1 ){
+        return "Today"
+    } else {
+        return `${parseInt(difference)} days ago`
+    }
+
+}
+
+
+
+
 //selecting body 
 const main = document.querySelector('.main')
 
 //variable for new elements
 const commentcontainer = addEmptyElement("section", "comment")
 const commentWrapper = addEmptyElement("div", "comment__wrapper")
-const commentBody = addEmptyElement("section", "comment__body")
+const commentForm = addEmptyElement("section", "comment__form")
 const form = addEmptyElement("form", "form")
 const avatar = addEmptyElement("div", "form__avatar")
 const profile = addEmptyElement("img","form__profile")
@@ -75,31 +123,43 @@ submit.type="submit"
 avatar.append(profile)
 inputWrapper.append(nameLabel,nameBox,commentLabel,commentBox,submit)
 form.append(avatar,inputWrapper)
-commentBody.append(form)
-commentWrapper.append(header,commentBody)
+commentForm.append(form)
+commentWrapper.append(header,commentForm)
 commentcontainer.append(commentWrapper)
 main.append(commentcontainer)
 
 //all comments
 comments.forEach(comment => {
-    //all new elements
-    const commentBody = addEmptyElement("section", "comment__body")
-    const commentCard = addEmptyElement("article", "comment__card")
-    const avatar = addEmptyElement("div", "comment__avatar")
-    const commentSubWrapper = addEmptyElement("div", "comment__sub-wrapper")
-    let commentName = addElement("p","comment__name")
-    let commentText = addElement("p", "comment__text")
-    let commentDate = addElement("p", "comment__date")
-
-    //adding text
-    commentName = commentName(comment.fullName)
-    commentText = commentText(comment.comment)
-    commentDate = commentDate(comment.date)
-
-    // adding all elements
-    commentSubWrapper.append(commentName, commentDate,commentText)
-    commentCard.append(avatar, commentSubWrapper)
-    commentBody.append(commentCard)
-    commentWrapper.append(commentBody)
+    displayComment(comment)
 });
 
+
+//form submit
+document.querySelector(".form").addEventListener("submit",(e)=>{
+    e.preventDefault()
+    //date contructor
+    const today = new Date()
+    const month = ("0" + (today.getMonth()+1)).slice(0,2)
+    //adding data to array
+    comments.unshift({
+        fullName: e.target.fullName.value,
+        date:`${month}/${today.getDate()}/${today.getFullYear()}`,
+        comment: e.target.comment.value
+    })
+    //reload all comments and add new comment
+    document.querySelectorAll(".comment__body").forEach(element =>{
+        element.remove()
+    })
+    comments.forEach(comment => {
+        displayComment(comment)
+    });
+    document.querySelector(".comment__card").classList.add("comment__body--new")
+    const newElProfile = addEmptyElement("img","form__profile")
+    document.querySelector(".comment__card .comment__avatar").append(newElProfile)
+    newElProfile.src = "./assets/images/Mohan-muruge.jpg"
+    newElProfile.alt = "photot of monha muruge"
+
+    //clear form
+    e.target.reset()
+    
+})

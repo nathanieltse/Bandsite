@@ -91,7 +91,7 @@
     }
 
     &__wrapper{
-        @include wrapper-sidespace 
+        @include wrapper-sidespace;
     }
     
 
@@ -137,14 +137,18 @@
 
     &__wrapper {
         @include wrapper-sidespace;
+        margin-bottom: $mobile-between-row-space;
+
+        @include tablet {
+            margin-bottom: $normal-between-row-space;
+        }
     }
 
     &__title {
         @include headline-row-space;
-
     }
     
-    &__body {
+    &__body,&__form {
         
         @include tablet {
             padding:0 $normal-between-row-space*2;
@@ -152,6 +156,27 @@
 
         @include desktop {
             padding:0 $normal-between-row-space*8;
+        }
+
+        &--new {
+            animation: new-message 0.5s ease-in;
+        }
+        
+    }
+
+    @keyframes new-message {
+        0%{
+            opacity: 0;
+            max-height: 0;
+        }
+        50%{
+            transform: scale(1.02);
+        }
+
+        100%{
+            opacity: 100%;
+            max-height: $space-unit*40;
+
         }
     }
 
@@ -161,11 +186,17 @@
     }
 
     &__avatar {
-        @include avatar;
+        @include avatar;   
+        position: relative;
+        overflow: hidden;
     }
 
     &__sub-wrapper {
-        width: 90%
+        @include flex-row{
+            flex-wrap: wrap;
+        }
+        width: 100%;
+        margin:$mobile-between-row-space 0;
     }
 
     &__name {
@@ -176,6 +207,11 @@
 
     &__date {
         color: $primary-neutral-color;
+        margin-left: auto;
+    }
+
+    &__text {
+        width: 100%;
     }
 
 
@@ -192,7 +228,6 @@
 
     &__avatar {
         @include avatar;   
-        // background: url("../assets/images/Mohan-muruge.jpg") center/cover ;
         position: relative;
         overflow: hidden;
     }

@@ -122,14 +122,14 @@
 @mixin avatar {
     background-color: $secondary-neutral-color;
     border-radius: 50%;
-    width: 2.25rem;
+    min-width: 2.25rem;
     height: 2.25rem;
-    margin: $normal-between-column-space $mobile-between-column-space 0 0;
+    margin: $normal-between-column-space $mobile-between-column-space $normal-between-column-space 0;
 
     @include tablet {
-        width: 3rem;
+        min-width: 3rem;
         height: 3rem;
-        margin: $normal-between-column-space $normal-between-column-space 0 0;
+        margin: $normal-between-column-space $normal-between-column-space $normal-between-column-space 0;
     }
 }
 
