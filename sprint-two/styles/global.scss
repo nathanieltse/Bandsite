@@ -83,9 +83,21 @@ footer p {
 
         @include tablet {
             @include flex-row;
-            
         }
 
+    }
+
+    &__link {
+        font-size: $mobile-sub-header-font;
+        font-weight: $weight-regular;
+        line-height: $mobile-sub-header-line-height;
+        text-decoration: none;
+        color: $primary-neutral-color;
+
+        &--active, &--active {
+            color: $primary-white;
+            font-weight: $weight-bold;
+        }
     }
 
     &__logo {
@@ -93,8 +105,8 @@ footer p {
         @include logo-size;
     
         @include tablet{
-            margin: $normal-between-column-space;
-            margin-left: 0;
+            margin: $normal-between-column-space 0;
+            
         }
         
     }
@@ -105,7 +117,7 @@ footer p {
         margin-top:$mobile-between-row-space;
 
         @include tablet{
-            margin: 0;
+            margin: 0 0 0 $normal-between-column-space;
         }
     }
 
@@ -128,20 +140,6 @@ footer p {
 
         &:hover, &--active {
             border-bottom: $space-unit/2 solid $primary-white;
-        }
-
-        
-    }
-    &__link {
-        font-size: $mobile-sub-header-font;
-        font-weight: $weight-regular;
-        line-height: $mobile-sub-header-line-height;
-        text-decoration: none;
-        color: $primary-neutral-color;
-
-        &--active, &--active {
-            color: $primary-white;
-            font-weight: $weight-bold;
         }
     }
 }

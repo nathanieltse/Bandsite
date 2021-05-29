@@ -2,17 +2,17 @@
 comments = [
     {
         fullName:"Connor Walton",
-        date:"02/17/2021",
+        timestamp:"02/17/2021",
         comment:"This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
     },
     {
         fullName:"Emilie Beach",
-        date:"01/09/2021",
+        timestamp:"01/09/2021",
         comment:"I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
     },
     {
         fullName:"Miles Acosta",
-        date:"12/20/2020",
+        timestamp:"12/20/2020",
         comment:"I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
     }
 ]
@@ -47,9 +47,9 @@ const displayComment = (comment) => {
     //adding text
     commentName = commentName(comment.fullName)
     commentText = commentText(comment.comment)
-    commentDate = commentDate(dateConvert(comment.date))
+    commentDate = commentDate(dateConvert(comment.timestamp))
 
-    // adding all elements
+    // adding all elements together
     commentSubWrapper.append(commentName, commentDate,commentText)
     commentCard.append(avatar, commentSubWrapper)
     commentBody.append(commentCard)
@@ -57,7 +57,7 @@ const displayComment = (comment) => {
 
 }
 
-//function for convert date
+//function for converting timestamp
 const dateConvert = (date) => {
     const today = new Date()
 
@@ -69,17 +69,15 @@ const dateConvert = (date) => {
     //calculate millisecond to day difference
     let difference = today.getTime() - past.getTime()
     difference = difference/(24*60*60*1000)
+    // difference = 0.5
 
-    if (difference < 1 ){
-        return "Today"
+    if (difference < 1){
+        return "today"
     } else {
         return `${parseInt(difference)} days ago`
     }
 
 }
-
-
-
 
 //selecting body 
 const main = document.querySelector('.main')
@@ -107,7 +105,7 @@ submit = submit("COMMENT")
 
 //all attributes
 profile.src = "./assets/images/Mohan-muruge.jpg"
-profile.alt = "photot of monha muruge"
+profile.alt = "photo of monha muruge"
 nameLabel.htmlFor = "fullName"
 nameBox.name = "fullName"
 nameBox.placeholder = "Enter your name"
@@ -119,7 +117,7 @@ commentBox.required = true
 submit.type="submit"
 
 
-//adding all elements
+//adding all elements together
 avatar.append(profile)
 inputWrapper.append(nameLabel,nameBox,commentLabel,commentBox,submit)
 form.append(avatar,inputWrapper)
@@ -128,7 +126,7 @@ commentWrapper.append(header,commentForm)
 commentcontainer.append(commentWrapper)
 main.append(commentcontainer)
 
-//all comments
+//displaying all comments
 comments.forEach(comment => {
     displayComment(comment)
 });
@@ -140,13 +138,13 @@ document.querySelector(".form").addEventListener("submit",(e)=>{
     //date contructor
     const today = new Date()
     const month = ("0" + (today.getMonth()+1)).slice(0,2)
-    //adding data to array
+    //adding data to comments array
     comments.unshift({
         fullName: e.target.fullName.value,
-        date:`${month}/${today.getDate()}/${today.getFullYear()}`,
+        timestamp:`${month}/${today.getDate()}/${today.getFullYear()}`,
         comment: e.target.comment.value
     })
-    //reload all comments and add new comment
+    //removing all comments and display all comments
     document.querySelectorAll(".comment__body").forEach(element =>{
         element.remove()
     })
@@ -157,9 +155,9 @@ document.querySelector(".form").addEventListener("submit",(e)=>{
     const newElProfile = addEmptyElement("img","form__profile")
     document.querySelector(".comment__card .comment__avatar").append(newElProfile)
     newElProfile.src = "./assets/images/Mohan-muruge.jpg"
-    newElProfile.alt = "photot of monha muruge"
+    newElProfile.alt = "photo of monha muruge"
 
-    //clear form
+    //clearing form
     e.target.reset()
     
 })

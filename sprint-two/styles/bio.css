@@ -38,7 +38,6 @@
   }
 }
 .hero__text {
-  display: block;
   color: #FFFFFF;
 }
 
@@ -230,7 +229,7 @@
   }
   100% {
     opacity: 100%;
-    max-height: 20rem;
+    max-height: auto;
   }
 }
 @keyframes new-message {
@@ -243,7 +242,7 @@
   }
   100% {
     opacity: 100%;
-    max-height: 20rem;
+    max-height: auto;
   }
 }
 .comment__card {

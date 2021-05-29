@@ -17,7 +17,6 @@
     }
 
     &__text {
-        display: block;
         color: $primary-white;
     }
 }
@@ -98,7 +97,6 @@
     &__title {
         @include headline-row-space;
         display:inline-block;
-
     }
 
     &__imagewrap {
@@ -175,7 +173,7 @@
 
         100%{
             opacity: 100%;
-            max-height: $space-unit*40;
+            max-height: auto;
 
         }
     }

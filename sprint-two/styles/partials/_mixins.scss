@@ -5,6 +5,18 @@
 
 //spacing mixins
 
+@mixin tablet {
+    @media (min-width:$tablet-size) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width:$desktop-size) {
+        @content;
+    }
+}
+
 @mixin flex-column {
     display: flex;
     flex-direction: column;
@@ -41,18 +53,6 @@
 
     @include desktop {
         margin: $normal-block-sidespace;
-    }
-}
-
-@mixin tablet {
-    @media (min-width:$tablet-size) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media (min-width:$desktop-size) {
-        @content;
     }
 }
 
