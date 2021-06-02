@@ -1,0 +1,150 @@
+@use './partials/colors' as *;
+@use './partials/variables' as *;
+@use './partials/typographys' as *;
+@use './partials/spacings' as *;
+@use './partials/mixins' as *;
+
+.hero {
+
+    &__container {
+        @include hero-content;
+        
+        @include tablet{
+            width: 60%;
+        }
+
+        @include desktop {
+            @include flex-row{
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+            width: auto;
+            left: 0%;
+            right: 0%;
+        }
+    }
+
+    &__body {
+
+        @include desktop {
+            width: 45%;
+        }
+        
+    }
+
+    &__title {
+        color: $primary-white; 
+    }
+
+    &__text {
+        @include mobile-headline-space;
+        color: $primary-white;
+    }
+    
+    &__player {
+
+        @include tablet {
+            margin-top:$normal-before-headlines-space*2;
+        }
+        
+        @include desktop {
+            margin-top:0;
+            width: 40%;
+        }
+    }
+    
+}
+
+.main {
+    @include wrapper-sidespace;
+    padding-bottom: $mobile-between-row-space;
+
+    @include tablet {
+        padding-bottom: $normal-between-row-space;
+    }
+
+    @include desktop {
+        @include flex-row {
+            justify-content: space-between;
+        }
+    }
+
+    &__title {
+        @include mobile-headline-space;
+
+        @include tablet {
+            @include normal-headline-space;
+        }
+    }
+
+    &__body {
+        @include desktop {
+            margin-top: $space-unit*2;
+            width: 80%;
+        }
+    }
+
+    &__tablet-subtitle-box{
+        display: none;
+
+        @include tablet {
+            @include reset-list;
+            @include normal-headline-space;
+            @include flex-row{
+                justify-content: space-between;
+            }
+        }
+    }
+
+    &__tablet-subtitle {
+        @include label;
+        width: $space-unit*18.75;
+
+    }
+
+
+}
+
+.card {
+    @include reset-list;
+    @include divider;
+    margin-bottom: $mobile-between-row-space;
+
+    @include tablet {
+        @include flex-row{
+            justify-content: space-between;
+            align-items: center;
+        }
+        padding-bottom: $normal-between-row-space/2;
+        margin-bottom: $normal-between-row-space/2;
+        
+    }
+
+    &__subtitle {
+        @include label;
+        margin-top: $mobile-before-headlines-space;
+
+        @include tablet {
+            display: none;
+        }
+    } 
+
+    &__date {
+        font-weight: $weight-demi;
+    }
+
+    &__date, &__text {
+        @include tablet {
+            width: $space-unit*18.75;
+        }
+    }
+}
+
+.button {
+    @include button;
+    @include mobile-headline-space;
+
+    @include tablet {
+        margin:0;
+    }
+}

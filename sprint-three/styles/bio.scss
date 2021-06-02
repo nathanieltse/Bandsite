@@ -1,0 +1,265 @@
+@use './partials/colors' as *;
+@use './partials/variables' as *;
+@use './partials/typographys' as *;
+@use './partials/spacings' as *;
+@use './partials/mixins' as *;
+
+.hero {
+    
+    &__container {
+        @include hero-content;
+
+        @include desktop {
+            width: auto;
+            left: 0%;
+            right: 0%;
+        }
+    }
+
+    &__text {
+        color: $primary-white;
+    }
+}
+
+.about {
+    background-color: $primary-white;
+    @include wrapper-sidespace;
+
+    &__title, &__subtitle {
+        @include headline-row-space
+    }
+
+    &__body {
+
+        @include tablet {
+            padding:0 $normal-between-row-space*1.5;
+        }
+
+        @include desktop {
+            padding:0 $normal-between-row-space*2.5;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        display:block;
+
+    }
+
+    &__quote {
+        padding:$mobile-between-row-space 0 0;
+
+        @include tablet {
+            padding:$normal-between-row-space 0 0;
+        }
+    }
+
+    &__musician {
+        margin-top: $mobile-between-row-space/2;
+        font-size: $mobile-sub-header-font/1.5;
+
+        @include tablet {
+            margin-top:$normal-between-row-space/2;
+            font-size: $normal-sub-header-font/1.5;
+        }
+    }
+
+    &__textwrap {
+        @include tablet {
+            @include flex-row;
+        }
+    }
+
+    &__text {
+        padding-bottom: $mobile-between-row-space;
+
+        @include tablet {
+            padding: 0 $normal-between-column-space $normal-between-row-space 0;
+        }
+    }
+}
+.gallery {
+    background-color: $secondary-white;
+
+    @include tablet {
+        padding-bottom: $normal-between-row-space;
+    }
+
+    @include desktop {
+        padding-bottom: $normal-between-row-space;
+    }
+
+    &__wrapper{
+        @include wrapper-sidespace;
+    }
+    
+
+    &__title {
+        @include headline-row-space;
+        display:inline-block;
+    }
+
+    &__imagewrap {
+        @include tablet {
+            @include flex-column {
+                gap:$normal-between-column-space;
+            }
+        }
+    }
+
+    &__image-row {
+        @include reset-list;
+    
+        @include tablet {
+            @include flex-row {
+                gap:$normal-between-column-space;
+            }
+        }
+    }
+
+    &__item {
+        padding-bottom: $mobile-between-row-space;
+        @include tablet {
+            padding-bottom:0;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        display: block;
+    }
+}
+
+.comment {
+    background-color: $primary-white;
+
+    &__wrapper {
+        @include wrapper-sidespace;
+        margin-bottom: $mobile-between-row-space;
+
+        @include tablet {
+            margin-bottom: $normal-between-row-space;
+        }
+    }
+
+    &__title {
+        @include headline-row-space;
+    }
+    
+    &__body,&__form {
+        
+        @include tablet {
+            padding:0 $normal-between-row-space*2;
+        }
+
+        @include desktop {
+            padding:0 $normal-between-row-space*8;
+        }
+
+        &--new {
+            animation: new-message 0.5s ease-in;
+        }
+        
+    }
+
+    @keyframes new-message {
+        0%{
+            opacity: 0;
+            max-height: 0;
+        }
+        50%{
+            transform: scale(1.02);
+        }
+
+        100%{
+            opacity: 100%;
+            max-height: auto;
+
+        }
+    }
+
+    &__card {
+        @include flex-row;
+        @include divider;
+    }
+
+    &__avatar {
+        @include avatar;   
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__sub-wrapper {
+        @include flex-row{
+            flex-wrap: wrap;
+        }
+        width: 100%;
+        margin:$mobile-between-row-space 0;
+    }
+
+    &__name {
+        font-weight: $weight-demi;
+        color:$primary-color;
+        margin-bottom: $space-unit/2;
+    }
+
+    &__date {
+        color: $primary-neutral-color;
+        margin-left: auto;
+    }
+
+    &__text {
+        width: 100%;
+    }
+
+
+
+}
+.form {
+    @include flex-row;
+    @include divider;
+
+    &__wrapper {
+        flex-grow: 2;
+    }
+
+
+    &__avatar {
+        @include avatar;   
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__profile {
+        position: absolute;
+        height: 100%;
+    }    
+
+    &__label {
+        @include label;
+    }
+
+    &__nameinput, &__commentinput {
+        @include formfield;
+        box-sizing: border-box;
+    }
+
+    &__nameinput {
+        margin-bottom:$mobile-between-row-space;
+    }
+
+    &__commentinput {
+        height:$space-unit*10;
+        
+    }
+
+    &__submit {
+        @include button;
+        display: block;
+        margin:$mobile-between-row-space 0;
+
+        @include tablet {
+            margin-left: auto;
+        }
+    }
+}

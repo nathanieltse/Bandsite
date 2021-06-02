@@ -1,0 +1,288 @@
+@use './partials/colors' as *;
+@use './partials/variables' as *;
+@use './partials/typographys' as *;
+@use './partials/spacings' as *;
+@use './partials/mixins' as *;
+
+//global font size, weight, line height, margin
+* {
+    font-family: $primary-font;
+    margin:0;
+    color:$primary-color;
+}
+
+h1 {
+    font-size: $mobile-header-font;
+    font-weight: $weight-bold;
+    line-height: $mobile-header-line-height;
+    margin:0;
+
+    @include tablet {
+        font-size: $normal-header-font;
+        line-height: $normal-header-line-height;
+    }
+}
+
+h2 {
+    font-size: $mobile-section-header-font;
+    font-weight: $weight-bold;
+    line-height: $mobile-section-header-line-height;
+    margin:0;
+
+    @include tablet {
+        font-size: $normal-section-header-font;
+        line-height: $normal-section-header-line-height;
+    }
+}
+
+h3{
+    font-size: $mobile-sub-header-font;
+    font-weight: $weight-demi;
+    line-height: $mobile-sub-header-line-height;
+    margin-block:0;
+
+    @include tablet {
+        font-size: $normal-sub-header-font;
+        line-height: $normal-sub-header-line-height;
+    }
+}
+
+p {
+    font-size: $mobile-body-font;
+    font-weight: $weight-regular;
+    line-height: $mobile-body-line-height;
+
+    @include tablet {
+        font-size: $normal-body-font;
+        line-height: $normal-body-line-height;
+    }
+}
+
+footer p {
+    @include tablet {
+        line-height: $normal-foot-line-height;
+    }
+}
+
+//global nav bar, footer, button elements
+.header {
+    background-color:$primary-color;
+}
+
+.nav {
+    padding-top:$mobile-before-headlines-space;
+
+    @include tablet {
+        padding-top: 0;
+    }
+
+    &__wrapper {
+        @include wrapper-sidespace;
+        text-align: center;
+        margin:0;
+
+        @include tablet {
+            @include flex-row;
+        }
+
+    }
+
+    &__link {
+        font-size: $mobile-sub-header-font;
+        font-weight: $weight-regular;
+        line-height: $mobile-sub-header-line-height;
+        text-decoration: none;
+        color: $primary-neutral-color;
+
+        &--active, &--active {
+            color: $primary-white;
+            font-weight: $weight-bold;
+        }
+    }
+
+    &__logo {
+        background-color:$primary-color;
+        @include logo-size;
+    
+        @include tablet{
+            margin: $normal-between-column-space 0;
+            
+        }
+        
+    }
+
+    &__list {
+        @include reset-list;
+        @include flex-row;
+        margin-top:$mobile-between-row-space;
+
+        @include tablet{
+            margin: 0 0 0 $normal-between-column-space;
+        }
+    }
+
+    &__item {
+        padding-bottom:$mobile-between-row-space;
+        width: 50%;
+
+        @include tablet{
+            @include flex-row {
+                align-items: center;
+                justify-content: center;
+            }
+            margin:0 $normal-between-column-space;
+            padding: 0;
+        }
+
+        @include desktop {
+            width: $space-unit*8;
+        }
+
+        &:hover, &--active {
+            border-bottom: $space-unit/2 solid $primary-white;
+        }
+    }
+}
+
+.hero {
+    position: relative;
+    
+    &:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        background-color: $primary-color;
+        opacity: 50%;
+    }
+
+    &__image {
+        width: 100%;
+        min-height: 22rem;
+        display:block;
+    }
+}
+
+.footer {
+    background-color: $primary-color;
+
+    & * {
+        color: $primary-white;
+    }
+
+    &__wrapper{
+        @include wrapper-sidespace;
+
+        @include tablet {
+            @include flex-row {
+                flex-wrap: wrap;
+            }
+        }
+    }
+    
+    &__header {
+        @include tablet {
+            @include flex-row{
+                align-items: baseline;
+                order:-1;
+                width: 80%;
+            }
+        }
+    }
+    
+    &__title {
+        @include mobile-headline-space;
+        display:inline-block;
+
+        @include tablet {
+            @include normal-headline-space;
+        }
+    }
+
+    &__social {
+
+        @include tablet {
+            margin: $normal-between-column-space;
+        }
+
+        @include desktop {
+            margin: $normal-between-column-space*2;
+        }
+    }
+
+    &__link {
+        margin-right: $normal-between-row-space ;
+
+        @include tablet {
+            margin-right: $normal-between-column-space;
+        }
+    }
+
+    &__contact {
+        @include tablet {
+            @include flex-row {
+                gap:$normal-between-column-space*2;
+                width: 100%;
+            }
+        }
+
+        @include desktop {
+            gap:$normal-between-column-space*3;
+            
+        }
+    }
+
+    
+
+    &__logo {
+        @include logo-size;
+        padding-top: $normal-before-headlines-space;
+
+
+        @include tablet {
+            margin: 0 0 $space-unit*6 auto;
+            padding:0;
+            order :-1;
+            align-self: flex-end;
+        }
+
+        @include desktop {
+            margin-bottom: $space-unit*7;
+        }
+        
+    }
+
+    &__copyright {
+        padding: $mobile-between-row-space 0;
+
+        @include tablet {
+            padding:$normal-before-headlines-space 0;
+        }
+    }
+}
+.contact-card {
+
+    &__wrapper {
+        padding-top: $mobile-between-row-space;
+
+        &:first-child {
+            @include tablet {
+                padding-top: 0;
+            }
+        }
+
+        @include tablet {
+            padding-top: $normal-between-row-space;
+        }
+    }
+
+    &__name, &__company {
+        font-weight: $weight-demi;
+    }
+
+    &__email {
+        text-decoration: none;
+    }
+}
+

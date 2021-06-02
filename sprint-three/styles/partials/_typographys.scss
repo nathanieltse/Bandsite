@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'avenir next';
+    src: url(../../assets/fonts/AvenirNextLTPro-Bold.otf) format("otf"),
+    url(../../assets/fonts/alternative-files/AvenirNextLTProBold.ttf) format("ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'avenir next';
+    src: url(../../assets/fonts/AvenirNextLTPro-Demi.otf) format("otf"),
+        url(../../assets/fonts/alternative-files/AvenirNextLTProDemi.ttf) format("ttf");
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'avenir next';
+    src: url(../../assets/fonts/AvenirNextLTPro-Regular.otf) format("otf"),
+        url(../../assets/fonts/alternative-files/AvenirNextLTPro.ttf) format("ttf");
+    font-weight: 400;
+}
+
+//font family
+
+$primary-font:'avenir next';
+
+//font weight
+
+$weight-regular:400;
+$weight-demi:600;
+$weight-bold:700;
+
+// normal font size
+
+$normal-header-font:4rem;
+$normal-section-header-font:2.25rem;
+$normal-sub-header-font:1.5rem;
+$normal-body-font:0.875rem;
+$normal-label-button-font:0.75rem;
+
+// mobile font size
+
+$mobile-header-font:1.5rem;
+$mobile-section-header-font:1.5rem;
+$mobile-sub-header-font:0.875rem;
+$mobile-body-font:0.8125rem;
+$mobile-label-button-font:0.625rem;
+
+//normal line height
+
+$normal-header-line-height:4.25rem;
+$normal-section-header-line-height:2.75rem;
+$normal-sub-header-line-height:2rem;
+$normal-body-line-height:1.375rem;
+$normal-foot-line-height:1.25rem;
+$normal-label-button-line-height:1.25rem;
+
+// mobile line height
+
+$mobile-header-line-height:2rem;
+$mobile-section-header-line-height:2rem;
+$mobile-sub-header-line-height:1.375rem;
+$mobile-body-line-height:1.125rem;
+$mobile-label-button-line-height:1.25rem;
+

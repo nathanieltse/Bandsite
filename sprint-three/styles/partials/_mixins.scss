@@ -1,0 +1,164 @@
+@use './colors' as *;
+@use './variables' as *;
+@use './typographys' as *;
+@use './spacings' as *;
+
+//spacing mixins
+
+@mixin tablet {
+    @media (min-width:$tablet-size) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width:$desktop-size) {
+        @content;
+    }
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+    @content;
+}
+
+@mixin flex-row {
+    display: flex;
+    @content;
+}
+
+@mixin mobile-headline-space{
+    margin: $mobile-before-headlines-space 0 $mobile-after-headlines-space;
+}
+
+@mixin normal-headline-space{
+    margin: $normal-before-headlines-space 0 $normal-after-headlines-space;
+}
+
+@mixin headline-row-space {
+    @include mobile-headline-space;
+
+        @include tablet {
+            @include normal-headline-space;
+        }
+}
+
+@mixin wrapper-sidespace {
+    margin:$mobile-block-sidespace;
+
+    @include tablet {
+        margin:$tablet-block-sidespace;
+    }
+
+    @include desktop {
+        margin: $normal-block-sidespace;
+    }
+}
+
+//elements mixins
+
+@mixin hero-content {
+    @include wrapper-sidespace;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    z-index: 1;
+
+}
+
+@mixin reset-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin logo-size {
+    max-height: $logo-height;
+    max-width: $logo-width;
+}
+
+@mixin divider {
+    border-bottom: 0.0625rem solid $secondary-neutral-color;
+}
+
+@mixin button {
+    font-size: $mobile-label-button-font;
+    font-weight: $weight-bold;
+    line-height: $mobile-label-button-line-height;
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    border-style: none;
+    background-color: $primary-color;
+    color: $primary-white;
+
+    &:hover {
+        background-color: $secondary-color;
+        cursor: pointer;
+    }
+    @include tablet {
+        font-size: $normal-label-button-font;
+        line-height: $normal-label-button-line-height;
+        // width: 20%;
+        width: 9.375rem;
+        padding:0 2rem;
+    }
+} 
+
+@mixin label {
+    font-size: $mobile-label-button-font;
+    line-height: $mobile-label-button-line-height;
+    font-weight: $weight-bold;
+    color: $primary-neutral-color;
+    margin-bottom: $space-unit/2;
+
+    @include tablet {
+        font-size: $normal-label-button-font;
+        line-height: $normal-label-button-line-height;
+    }
+}
+
+@mixin avatar {
+    background-color: $secondary-neutral-color;
+    border-radius: 50%;
+    min-width: 2.25rem;
+    height: 2.25rem;
+    margin: $normal-between-column-space $mobile-between-column-space $normal-between-column-space 0;
+
+    @include tablet {
+        min-width: 3rem;
+        height: 3rem;
+        margin: $normal-between-column-space $normal-between-column-space $normal-between-column-space 0;
+    }
+}
+
+@mixin formfield {
+    width: 100%;
+    height: $space-unit*4.5;
+    border: 0.0625rem solid $secondary-neutral-color;
+    border-radius: 0.25rem;
+    padding: $space-unit*1.5;
+    background-color: $secondary-white;
+    font-size: $mobile-body-font;
+    font-weight: $weight-regular;
+    line-height: $mobile-body-line-height;
+
+    &::placeholder {
+        color:$primary-color;
+    }
+    &:focus {
+        outline:none;
+        border-color: $secondary-color;
+    }
+    &--invalid {
+        border-color: $error-color;
+    }
+    
+    @include tablet {
+        height: $space-unit*6;
+        padding: $space-unit*2;
+        font-size: $normal-body-font;
+        line-height: $normal-body-line-height;
+    }
+}
