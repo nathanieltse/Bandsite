@@ -16,6 +16,7 @@ comments = [
         comment:"I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
     }
 ]
+apiKey = "41b2250c-5703-45b8-ae77-b9d83119b3d2"
 
 //function for adding element
 const addElement = (element, className) => {
@@ -49,6 +50,7 @@ const displayComment = (comment) => {
     commentText = commentText(comment.comment)
     commentDate = commentDate(dateConvert(comment.timestamp))
 
+
     // adding all elements together
     commentSubWrapper.append(commentName, commentDate,commentText)
     commentCard.append(avatar, commentSubWrapper)
@@ -64,13 +66,14 @@ const dateConvert = (date) => {
     const pastMonth = Number(date.slice(0,2))-1
     const pastDay = Number(date.slice(3,5))
     const pastYear = Number(date.slice(6,10))
-    const past = new Date(pastYear,pastMonth, pastDay)
+    const past = new Date(pastYear, pastMonth, pastDay)
 
+    console.log(pastYear, pastMonth, pastDay)
     //calculate millisecond to day difference
     let difference = today.getTime() - past.getTime()
     difference = difference/(24*60*60*1000)
-    // difference = 0.5
-
+    
+    
     if (difference < 1){
         return "today"
     } else {
@@ -137,13 +140,16 @@ document.querySelector(".form").addEventListener("submit",(e)=>{
     e.preventDefault()
     //date contructor
     const today = new Date()
-    const month = ("0" + (today.getMonth()+1)).slice(0,2)
+    const month = ("0" + (today.getMonth()+1)).slice(-2)
+    const day = ("0" + today.getDate()).slice(-2)
     //adding data to comments array
     comments.unshift({
         fullName: e.target.fullName.value,
-        timestamp:`${month}/${today.getDate()}/${today.getFullYear()}`,
+        timestamp:`${month}/${day}/${today.getFullYear()}`,
         comment: e.target.comment.value
     })
+
+    console.log(typeof today)
     //removing all comments and display all comments
     document.querySelectorAll(".comment__body").forEach(element =>{
         element.remove()
