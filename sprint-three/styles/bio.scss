@@ -156,8 +156,47 @@
             padding:0 $normal-between-row-space*8;
         }
         
+        &--new {
+            animation: new-message 0.8s ease-out;
+        }
+        
     }
 
+    @keyframes new-message {
+        0%{
+            opacity: 0;
+            max-height: 0;
+        }
+        50%{
+            transform: scale(1.02);
+        }
+
+        100%{
+            opacity: 100%;
+            max-height: auto;
+
+        }
+    }
+
+    &__body--ondelete{
+        animation: deletion 0.8s ease-out forwards;
+
+        @keyframes deletion{
+            0%{
+                max-height:$space-unit*30;
+            }
+            30%{
+                opacity: 0;
+                
+            }
+            100%{
+                max-height: 0%;
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+    
 
     &__card {
         @include flex-row;
@@ -183,14 +222,35 @@
         color:$primary-color;
         margin-bottom: $space-unit/2;
     }
+    
+    &__delete,&__like{
+        height: $space-unit*2.5;
+        border-style: none;
+        background-color: $primary-white;
+        padding: 0;
+        margin-left: auto;
+        
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.2);
+            transition: 0.5s ease-in;
+        }
+        &-icon {
+            width: 100%;
+        } 
+    }
+    &__like{
+        margin-left: 0;
+    }
 
     &__date {
         color: $primary-neutral-color;
-        margin-left: auto;
+        margin-left: $mobile-between-column-space;
     }
 
     &__text {
         width: 100%;
+        margin-bottom: $space-unit/2;
     }
 
 
