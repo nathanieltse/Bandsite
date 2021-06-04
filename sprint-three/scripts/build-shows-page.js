@@ -1,9 +1,3 @@
-//all data list
-const dateList = ["Mon Sept 06 2021", "Tue Sept 21 2021", "Fri Oct 15 2021", "Sat Nov 06 2021", "Fri Nov 26 2021", "Wed Dec 15 2021"]
-const venueList = [1,2,3,4,5,6]
-
-
-
 //function for adding element
 const addElement = (element, className) => {
     return (content) => {
@@ -56,6 +50,8 @@ axios.get(`https://project-1-api.herokuapp.com/showdates?api_key=${apiKey}`)
     console.log(error)
 })
 
+//function for displaying all comments
+
 const displayShows = (showsList) =>{
     showsList.forEach(show => {
         //variable for new elements
@@ -88,6 +84,7 @@ const displayShows = (showsList) =>{
 
         
     })
+    //button listener
     document.querySelectorAll(".button").forEach(button => {
         button.addEventListener("click", (e) => buttonFunction(e))
     })
