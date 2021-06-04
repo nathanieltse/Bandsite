@@ -1,22 +1,35 @@
 //all comments
-comments = [
-    {
-        fullName:"Connor Walton",
-        timestamp:"02/17/2021",
-        comment:"This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-    },
-    {
-        fullName:"Emilie Beach",
-        timestamp:"01/09/2021",
-        comment:"I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-    },
-    {
-        fullName:"Miles Acosta",
-        timestamp:"12/20/2020",
-        comment:"I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-    }
-]
+// comments = [
+//     {
+//         fullName:"Connor Walton",
+//         timestamp:"02/17/2021",
+//         comment:"This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
+//     },
+//     {
+//         fullName:"Emilie Beach",
+//         timestamp:"01/09/2021",
+//         comment:"I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
+//     },
+//     {
+//         fullName:"Miles Acosta",
+//         timestamp:"12/20/2020",
+//         comment:"I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
+//     }
+// ]
+// API call
 apiKey = "41b2250c-5703-45b8-ae77-b9d83119b3d2"
+
+const apiCall = () => {
+axios
+    .get(`https://project-1-api.herokuapp.com/comments?api_key=${apiKey}`)
+    .then(response => {
+        displayComment(response.data)
+    })
+    .catch(error => {
+        console.log(error)
+    })
+}
+
 
 //function for adding element
 const addElement = (element, className) => {
@@ -35,28 +48,40 @@ const addEmptyElement = (element, className) => {
 }
 
 //function for displaying comment
-const displayComment = (comment) => {
-    //all new elements
-    const commentBody = addEmptyElement("section", "comment__body")
-    const commentCard = addEmptyElement("article", "comment__card")
-    const avatar = addEmptyElement("div", "comment__avatar")
-    const commentSubWrapper = addEmptyElement("div", "comment__sub-wrapper")
-    let commentName = addElement("p","comment__name")
-    let commentText = addElement("p", "comment__text")
-    let commentDate = addElement("p", "comment__date")
+const displayComment = (comments) => {
+    //order commments by timestamp
+    comments.sort((a,b) => {
+        return b.timestamp - a.timestamp 
+    })
+    comments.forEach(comment => {
+        //all new elements
+        const commentBody = addEmptyElement("section", "comment__body")
+        const commentCard = addEmptyElement("article", "comment__card")
+        const avatar = addEmptyElement("div", "comment__avatar")
+        const commentSubWrapper = addEmptyElement("div", "comment__sub-wrapper")
+        let commentName = addElement("p","comment__name")
+        let commentText = addElement("p", "comment__text")
+        let commentDate = addElement("p", "comment__date")
 
-    //adding text
-    commentName = commentName(comment.fullName)
-    commentText = commentText(comment.comment)
-    commentDate = commentDate(dateConvert(comment.timestamp))
+        //set Date
+        const fullDate = new Date(comment.timestamp)
+        const year = fullDate.getFullYear()
+        const month = ("0" + (fullDate.getMonth()+1)).slice(-2)
+        const day = ("0" + fullDate.getDate()).slice(-2)
+        const showDate = `${month}/${day}/${year}`
+
+        //adding text
+        commentName = commentName(comment.name)
+        commentText = commentText(comment.comment)
+        commentDate = commentDate(dateConvert(showDate))
 
 
-    // adding all elements together
-    commentSubWrapper.append(commentName, commentDate,commentText)
-    commentCard.append(avatar, commentSubWrapper)
-    commentBody.append(commentCard)
-    commentWrapper.append(commentBody)
-
+        // adding all elements together
+        commentSubWrapper.append(commentName, commentDate,commentText)
+        commentCard.append(avatar, commentSubWrapper)
+        commentBody.append(commentCard)
+        commentWrapper.append(commentBody)
+        })
 }
 
 //function for converting timestamp
@@ -68,11 +93,9 @@ const dateConvert = (date) => {
     const pastYear = Number(date.slice(6,10))
     const past = new Date(pastYear, pastMonth, pastDay)
 
-    console.log(pastYear, pastMonth, pastDay)
     //calculate millisecond to day difference
     let difference = today.getTime() - past.getTime()
     difference = difference/(24*60*60*1000)
-    
     
     if (difference < 1){
         return "today"
@@ -82,6 +105,7 @@ const dateConvert = (date) => {
 
 }
 
+//Comment form
 //selecting body 
 const main = document.querySelector('.main')
 
@@ -112,11 +136,9 @@ profile.alt = "photo of monha muruge"
 nameLabel.htmlFor = "fullName"
 nameBox.name = "fullName"
 nameBox.placeholder = "Enter your name"
-nameBox.required = true
 commentLabel.htmlFor = "comment"
 commentBox.name = "comment"
 commentBox.placeholder = "Add a new comment"
-commentBox.required = true
 submit.type="submit"
 
 
@@ -129,41 +151,51 @@ commentWrapper.append(header,commentForm)
 commentcontainer.append(commentWrapper)
 main.append(commentcontainer)
 
-//displaying all comments
-comments.forEach(comment => {
-    displayComment(comment)
-});
-
-
 //form submit
 document.querySelector(".form").addEventListener("submit",(e)=>{
-    e.preventDefault()
-    //date contructor
-    const today = new Date()
-    const month = ("0" + (today.getMonth()+1)).slice(-2)
-    const day = ("0" + today.getDate()).slice(-2)
-    //adding data to comments array
-    comments.unshift({
-        fullName: e.target.fullName.value,
-        timestamp:`${month}/${day}/${today.getFullYear()}`,
-        comment: e.target.comment.value
-    })
+    if (e.target.fullName.value && e.target.comment.value !== ""){
+        e.preventDefault()
+        //API call to add comment
+        axios
+            .post(`https://project-1-api.herokuapp.com/comments?api_key=${apiKey}`,{
+                name: e.target.fullName.value,
+                comment: e.target.comment.value
+            },{
+            header:{
+                "Content-Type": "application/json"
+            } 
+            })
+            .then(response => {
+                apiCall()
+            })
+            .catch(error => {
+                console.log(error)
+            })
 
-    console.log(typeof today)
-    //removing all comments and display all comments
-    document.querySelectorAll(".comment__body").forEach(element =>{
-        element.remove()
-    })
-    comments.forEach(comment => {
-        displayComment(comment)
-    });
-    document.querySelector(".comment__card").classList.add("comment__body--new")
-    const newElProfile = addEmptyElement("img","form__profile")
-    document.querySelector(".comment__card .comment__avatar").append(newElProfile)
-    newElProfile.src = "./assets/images/Mohan-muruge.jpg"
-    newElProfile.alt = "photo of monha muruge"
-
-    //clearing form
-    e.target.reset()
+        //removing all comments and display all comments
+        document.querySelectorAll(".comment__body").forEach(element =>{
+            element.remove()
+        })
+        
+        //clearing form
+        e.target.reset()
+        
+        
+    } 
+    else if (e.target.fullName.value === "" && e.target.comment.value === ""){
+        e.preventDefault()
+        console.log("both")
+    }
+    else if (e.target.fullName.value === ""){
+        e.preventDefault()
+        console.log("namered")
+    }
+    else if (e.target.comment.value === "") {
+        e.preventDefault()
+        console.log("comment")
+    }
+    
     
 })
+
+apiCall()

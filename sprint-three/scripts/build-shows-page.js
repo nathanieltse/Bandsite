@@ -43,8 +43,7 @@ main.append(mainBody)
 apiKey = "41b2250c-5703-45b8-ae77-b9d83119b3d2"
 axios.get(`https://project-1-api.herokuapp.com/showdates?api_key=${apiKey}`)
 .then(response => {
-    const showsList = response.data
-    displayShows(showsList)
+    displayShows(response.data)
 })
 .catch(error => {
     console.log(error)

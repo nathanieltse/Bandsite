@@ -155,28 +155,9 @@
         @include desktop {
             padding:0 $normal-between-row-space*8;
         }
-
-        &--new {
-            animation: new-message 0.5s ease-in;
-        }
         
     }
 
-    @keyframes new-message {
-        0%{
-            opacity: 0;
-            max-height: 0;
-        }
-        50%{
-            transform: scale(1.02);
-        }
-
-        100%{
-            opacity: 100%;
-            max-height: auto;
-
-        }
-    }
 
     &__card {
         @include flex-row;
