@@ -1,14 +1,15 @@
-// API call
+// API info
 apiKey = "41b2250c-5703-45b8-ae77-b9d83119b3d2"
+apiUrl = "https://project-1-api.herokuapp.com"
 
+//API call
 const apiCall = () => {
 axios
-    .get(`https://project-1-api.herokuapp.com/comments?api_key=${apiKey}`)
+    .get(`${apiUrl}/comments?api_key=${apiKey}`)
     .then(response => {
         displayComment(response.data)
     })
     .catch(error => {
-        console.log(error)
     })
 }
 
@@ -51,6 +52,7 @@ const displayComment = (comments) => {
         let commentName = addElement("p","comment__name")
         let commentText = addElement("p", "comment__text")
         let commentDate = addElement("p", "comment__date")
+        let commentLike = addElement("p","comment__like-count")
         
 
         //set Date
@@ -65,6 +67,7 @@ const displayComment = (comments) => {
         commentName = commentName(comment.name)
         commentText = commentText(comment.comment)
         commentDate = commentDate(dateConvert(showDate))
+        commentLike = commentLike(`${comment.likes} likes`)
 
         //buttons
         deletebtn.dataset.comment=comment.id
@@ -78,21 +81,36 @@ const displayComment = (comments) => {
         // adding all elements together
         deletebtn.append(deleteIcon)
         likebtn.append(likeIcon)
-        commentSubWrapper.append(commentName, deletebtn, commentDate, commentText, likebtn)
+        commentSubWrapper.append(commentName, deletebtn, commentDate, commentText, likebtn, commentLike)
         commentCard.append(avatar, commentSubWrapper)
         commentBody.append(commentCard)
         commentWrapper.append(commentBody)
     })
+
     //delete function
     document.querySelectorAll(".comment__delete").forEach(button => {
         button.addEventListener("click",(e)=> {
-        deleteComment(e)
+            deleteComment(e)
+        })
     })
+
+    //like function
+    document.querySelectorAll(".comment__like").forEach(button => {
+        button.addEventListener("click",(e) =>{
+            addLike(e)
+        })
+    })
+
     //add comment animation
     document.querySelector(".comment__card").classList.add("comment__body--new")
-    
-})
+
 }
+//if page reload remove animation
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.querySelector(".comment__card").classList.remove("comment__body--new")
+    }, 100);
+})
 
 //function for converting timestamp to days
 const dateConvert = (date) => {
@@ -178,7 +196,7 @@ document.querySelector(".form").addEventListener("submit",(e)=>{
         
         //API call to add comment
         axios
-            .post(`https://project-1-api.herokuapp.com/comments?api_key=${apiKey}`,{
+            .post(`${apiUrl}/comments?api_key=${apiKey}`,{
                 name: e.target.fullName.value,
                 comment: e.target.comment.value
             },{
@@ -187,11 +205,9 @@ document.querySelector(".form").addEventListener("submit",(e)=>{
             } 
             })
             .then(response => {
-                apiCall()
-                
+                    apiCall()   
             })
             .catch(error => {
-                console.log(error)
             })
             
         //clearing form
@@ -219,12 +235,23 @@ const deleteComment = (e) => {
     const commentId = e.currentTarget.dataset.comment
     document.getElementById(commentId).classList.add("comment__body--ondelete")
     axios
-        .delete(`https://project-1-api.herokuapp.com/comments/${commentId}?api_key=${apiKey}`)
+        .delete(`${apiUrl}/comments/${commentId}?api_key=${apiKey}`)
         .then(response => {
         })
         .catch(error => {
-            console.log(error)
         })
     
+}
+
+const addLike = (e) => {
+    const likeId = e.currentTarget.dataset.comment
+    const likeCount = document.getElementById(`${likeId}`).querySelector("article > div > .comment__like-count")
+    likeCount.innerHTML = `${Number(likeCount.innerHTML.split(" ")[0])+1} likes`
+    axios
+        .put(`${apiUrl}/comments/${likeId}/like?api_key=${apiKey}`)
+        .then(response => {
+        })
+        .catch(error => {
+        })
 }
 apiCall()
