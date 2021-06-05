@@ -16,7 +16,6 @@ let title = addElement("h2", "main__title")
 title = title("Shows")
 main.append(title)
 
-
 //subtitle for tablet and desktop
 let mainBody = addElement("section", "main__body")
 let titleContainer = addElement("ul", "main__tablet-subtitle-box")
@@ -50,7 +49,6 @@ axios.get(`https://project-1-api.herokuapp.com/showdates?api_key=${apiKey}`)
 })
 
 //function for displaying all comments
-
 const displayShows = (showsList) =>{
     showsList.forEach(show => {
         //variable for new elements
@@ -79,10 +77,9 @@ const displayShows = (showsList) =>{
         
         //add all data to HTML
         infoCard.append(dateTitle,dateText,venueTitle,venueText,locationTitle,locationText,buyBtn)
-        mainBody.append(infoCard)
-
-        
+        mainBody.append(infoCard)  
     })
+
     //button listener
     document.querySelectorAll(".button").forEach(button => {
         button.addEventListener("click", (e) => buttonFunction(e))

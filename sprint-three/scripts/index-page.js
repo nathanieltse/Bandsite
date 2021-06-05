@@ -106,6 +106,7 @@ const displayComment = (comments) => {
     document.querySelector(".comment__card").classList.add("comment__body--new")
 
 }
+
 //if page reload do not play animation
 window.addEventListener("load", () => {
     setTimeout(() => {
