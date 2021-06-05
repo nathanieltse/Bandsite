@@ -8,10 +8,10 @@ const addElement = (element, className) => {
     }
 }
 
-//selecting body 
+//select body 
 const main = document.querySelector('.main')
 
-//adding title
+//add title
 let title = addElement("h2", "main__title")
 title = title("Shows")
 main.append(title)
@@ -66,7 +66,7 @@ const displayShows = (showsList) =>{
         //set Date
         const showDate = new Date(Number(show.date)).toDateString()
 
-        //setting content
+        //set content
         infoCard = infoCard("")
         dateTitle = dateTitle("DATES")
         venueTitle = venueTitle("VENUE")
@@ -77,7 +77,7 @@ const displayShows = (showsList) =>{
         buyBtn = buyBtn("BUY TICKETS")
 
         
-        //adding all data to HTML
+        //add all data to HTML
         infoCard.append(dateTitle,dateText,venueTitle,venueText,locationTitle,locationText,buyBtn)
         mainBody.append(infoCard)
 

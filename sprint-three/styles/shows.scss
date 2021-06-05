@@ -5,7 +5,6 @@
 @use './partials/mixins' as *;
 
 .hero {
-
     &__container {
         @include hero-content;
         
@@ -28,17 +27,26 @@
 
         @include desktop {
             width: 45%;
-        }
-        
+        } 
     }
 
     &__title {
         color: $primary-white; 
+        width: 100%
     }
 
     &__text {
         @include mobile-headline-space;
         color: $primary-white;
+        width: $space-unit*30;
+
+        @include tablet {
+            width: $space-unit*75;
+        }
+        
+        @include desktop {
+            width: $space-unit*70;
+        }
     }
     
     &__player {

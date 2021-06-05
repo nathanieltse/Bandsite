@@ -31,7 +31,7 @@ const addEmptyElement = (element, className) => {
 
 //function for displaying comment
 const displayComment = (comments) => {
-    // removing all comments and display all comments
+    // remove all comments
     document.querySelectorAll(".comment__body").forEach(element =>{
         element.remove()
     })
@@ -39,6 +39,7 @@ const displayComment = (comments) => {
     comments.sort((a,b) => {
         return b.timestamp - a.timestamp 
     })
+    //display all comments
     comments.forEach(comment => {
         //all new elements
         const commentBody = addEmptyElement("section", "comment__body")
@@ -62,7 +63,7 @@ const displayComment = (comments) => {
         const day = ("0" + fullDate.getDate()).slice(-2)
         const showDate = `${month}/${day}/${year}`
 
-        //adding text
+        //add text
         commentBody.id = comment.id
         commentName = commentName(comment.name)
         commentText = commentText(comment.comment)
@@ -78,7 +79,7 @@ const displayComment = (comments) => {
         likeIcon.alt = "delete icon"
 
 
-        // adding all elements together
+        // add all elements together
         deletebtn.append(deleteIcon)
         likebtn.append(likeIcon)
         commentSubWrapper.append(commentName, deletebtn, commentDate, commentText, likebtn, commentLike)
@@ -105,7 +106,7 @@ const displayComment = (comments) => {
     document.querySelector(".comment__card").classList.add("comment__body--new")
 
 }
-//if page reload remove animation
+//if page reload do not play animation
 window.addEventListener("load", () => {
     setTimeout(() => {
         document.querySelector(".comment__card").classList.remove("comment__body--new")
@@ -133,9 +134,9 @@ const dateConvert = (date) => {
 
 }
 
-//adding comment form
+//add comment form
 
-//selecting body 
+//select body 
 const main = document.querySelector('.main')
 
 //variable for new elements
@@ -153,7 +154,7 @@ let nameLabel = addElement("label", "form__label")
 let commentLabel = addElement("label","form__label")
 let submit = addElement("button","form__submit")
 
-//adding text
+//add text
 header = header("Join the Conversation")
 nameLabel = nameLabel("NAME")
 commentLabel = commentLabel("COMMENT")
@@ -171,7 +172,7 @@ commentBox.placeholder = "Add a new comment"
 submit.type="submit"
 
 
-//adding all elements together
+//add all elements together
 avatar.append(profile)
 inputWrapper.append(nameLabel,nameBox,commentLabel,commentBox,submit)
 form.append(avatar,inputWrapper)
@@ -180,7 +181,7 @@ commentWrapper.append(header,commentForm)
 commentcontainer.append(commentWrapper)
 main.append(commentcontainer)
 
-//form state
+//form state listener
 const nameField = document.querySelector(".form__nameinput")
 const commentField = document.querySelector(".form__commentinput")
 document.querySelector(".form").addEventListener("keydown",() => {
@@ -190,10 +191,9 @@ document.querySelector(".form").addEventListener("keydown",() => {
 
 //form submit
 document.querySelector(".form").addEventListener("submit",(e)=>{
+    e.preventDefault()
     //valid form
     if (e.target.fullName.value && e.target.comment.value !== ""){
-        e.preventDefault()
-        
         //API call to add comment
         axios
             .post(`${apiUrl}/comments?api_key=${apiKey}`,{
@@ -205,7 +205,7 @@ document.querySelector(".form").addEventListener("submit",(e)=>{
             } 
             })
             .then(response => {
-                    apiCall()   
+                apiCall()   
             })
             .catch(error => {
             })
@@ -215,22 +215,17 @@ document.querySelector(".form").addEventListener("submit",(e)=>{
     } 
     //invalid form
     else if (e.target.fullName.value === "" && e.target.comment.value === ""){
-        e.preventDefault()
         nameField.classList.add("form__commentinput--invalid")
         commentField.classList.add("form__commentinput--invalid")
-
     }
     else if (e.target.fullName.value === ""){
-        e.preventDefault()
         nameField.classList.add("form__commentinput--invalid")
     }
     else if (e.target.comment.value === "") {
-        e.preventDefault()
         commentField.classList.add("form__commentinput--invalid")
     }
-    
 })
-
+//delete function
 const deleteComment = (e) => {
     const commentId = e.currentTarget.dataset.comment
     document.getElementById(commentId).classList.add("comment__body--ondelete")
@@ -240,9 +235,8 @@ const deleteComment = (e) => {
         })
         .catch(error => {
         })
-    
 }
-
+//add like function
 const addLike = (e) => {
     const likeId = e.currentTarget.dataset.comment
     const likeCount = document.getElementById(`${likeId}`).querySelector("article > div > .comment__like-count")
@@ -254,4 +248,5 @@ const addLike = (e) => {
         .catch(error => {
         })
 }
+//call API onload
 apiCall()

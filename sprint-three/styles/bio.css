@@ -17,6 +17,8 @@
   margin: 0 1rem;
   position: absolute;
   top: 50%;
+  left: 0;
+  right: 0;
   transform: translateY(-50%);
   z-index: 1;
 }
@@ -197,11 +199,11 @@
     margin-bottom: 2.25rem;
   }
 }
-.comment .comment__title {
+.comment__title {
   margin: 1.5rem 0 1rem;
 }
 @media (min-width: 768px) {
-  .comment .comment__title {
+  .comment__title {
     margin: 3rem 0 2.25rem;
   }
 }
