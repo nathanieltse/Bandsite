@@ -1,8 +1,3 @@
-//all data list
-const dateList = ["Mon Sept 06 2021", "Tue Sept 21 2021", "Fri Oct 15 2021", "Sat Nov 06 2021", "Fri Nov 26 2021", "Wed Dec 15 2021"]
-const venueList = ["Ronald Lane", "Pier 3 East", "View Lounge", "Hyatt Agency", "Moscow Center", "Press Club"]
-
-
 //function for adding element
 const addElement = (element, className) => {
     return (content) => {
